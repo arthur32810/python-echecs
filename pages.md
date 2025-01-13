@@ -8,7 +8,8 @@
 1. Gestion des joueurs
 2. Gestion des tournois
 3. Afficher les rapports
-4. Quitter le programme
+
+Q. Quitter le programme
 ------------------------------------
 Veuillez sélectionner une option (1-4) :
 ```
