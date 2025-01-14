@@ -15,3 +15,8 @@ class PlayerController:
             next = "homepage"
 
         return next, None
+
+    @staticmethod
+    def list_player(store=None, input=None):
+        PlayerView.display_list_player(store.players.get_players())
+        return "home_player", None

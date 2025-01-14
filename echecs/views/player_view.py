@@ -13,14 +13,17 @@ class PlayerView:
         return input("Veuillez selectionner une option (1-3) : ")
 
     @staticmethod
-    def display_players(players):
+    def display_list_player(players):
         GeneralView.display_header("   LISTE DES JOUEURS (ALPHABÉTIQUE)")
 
         if not players:
-            print("Aucun joueur enregistré")
+            print("\nAucun joueur enregistré")
 
         for index, player in enumerate(players):
             print(f"{index+1}. {player.last_name}, {player.first_name}")
+
+        print("\n------------------------------------")
+        input("Appuyez sur Entrée pour retourner au menu précédent...")
 
     @staticmethod
     def prompt_for_add_player():
