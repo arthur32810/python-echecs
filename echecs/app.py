@@ -11,6 +11,7 @@ class Application:
         "homepage": HomeController.main_menu,
         "home_player": PlayerController.main_player,
         "list_player": PlayerController.list_player,
+        "add_player": PlayerController.add_player,
     }
 
     def __init__(self) -> None:

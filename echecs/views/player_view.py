@@ -28,3 +28,11 @@ class PlayerView:
     @staticmethod
     def prompt_for_add_player():
         GeneralView.display_header("       AJOUTER UN NOUVEAU JOUEUR")
+
+        last_name = input("Nom : ")
+        first_name = input("Prénom : ")
+        birthday = input("Date de naissance (JJ/MM/AAA) : ")
+
+        print("\n------------------------------------")
+
+        return last_name, first_name, birthday

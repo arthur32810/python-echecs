@@ -1,3 +1,5 @@
+from echecs.models.storePlayer import StorePlayer
+from echecs.views.general_view import GeneralView
 from echecs.views.player_view import PlayerView
 
 
@@ -20,3 +22,11 @@ class PlayerController:
     def list_player(store=None, input=None):
         PlayerView.display_list_player(store.players.get_players())
         return "home_player", None
+
+    @staticmethod
+    def add_player(store=None, input=None):
+        last_name, first_name, birthday = PlayerView.prompt_for_add_player()
+
+        StorePlayer.add_player(first_name, last_name, birthday)
+
+        GeneralView.display_success_message("joueur")

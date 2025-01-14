@@ -7,3 +7,9 @@ class GeneralView:
         print("====================================")
         print(title)
         print("====================================")
+
+    @staticmethod
+    def display_success_message(entity_name):
+        """Affiche un message"""
+        print(f"[Nouveau {entity_name} ajouté avec succès !]")
+        input("Appuyez sur Entrée pour continuer...")
