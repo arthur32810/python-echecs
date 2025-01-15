@@ -32,8 +32,8 @@ Veuillez sélectionner une option (1-3) :
 ====================================
        AJOUTER UN NOUVEAU JOUEUR
 ====================================
-Nom : [Saisir le nom]
 Prénom : [Saisir le prénom]
+Nom : [Saisir le nom]
 Date de naissance (JJ/MM/AAAA) : [Saisir la date]
 Identifiant national d’échecs : [Saisir l'identifiant]
 ------------------------------------
@@ -46,9 +46,10 @@ Appuyez sur Entrée pour continuer...
 ====================================
    LISTE DES JOUEURS (ALPHABÉTIQUE)
 ====================================
-1. [Nom, Prénom] - [Identifiant national]
-2. [Nom, Prénom] - [Identifiant national]
-...
+ID      Nom     Prénom  Date de naissance
+1       Robert  Arthur  01/01/1900
+2       Dupont  Paul    10/11/1900
+
 ------------------------------------
 Appuyez sur Entrée pour retourner au menu précédent...
 ```
