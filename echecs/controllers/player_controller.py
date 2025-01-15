@@ -1,4 +1,3 @@
-from echecs.models.storePlayer import StorePlayer
 from echecs.views.general_view import GeneralView
 from echecs.views.player_view import PlayerView
 

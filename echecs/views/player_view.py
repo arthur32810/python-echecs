@@ -1,8 +1,6 @@
 from echecs.utils.date_validator import is_valid_date
 from echecs.views.general_view import GeneralView
 
-from datetime import datetime
-
 
 class PlayerView:
 
