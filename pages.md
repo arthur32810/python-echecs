@@ -46,9 +46,9 @@ Appuyez sur Entrée pour continuer...
 ====================================
    LISTE DES JOUEURS (ALPHABÉTIQUE)
 ====================================
-ID      Nom     Prénom  Date de naissance
-1       Robert  Arthur  01/01/1900
-2       Dupont  Paul    10/11/1900
+ID       Nom     Prénom  Date de naissance
+AB12345  Robert  Arthur  01/01/1900
+CD67890  Dupont  Paul    10/11/1900
 
 ------------------------------------
 Appuyez sur Entrée pour retourner au menu précédent...
