@@ -9,6 +9,8 @@ class HomeController:
 
         if choice == "1":
             next = "home_player"
+        elif choice == "2":
+            next = "home_tournament"
         elif choice == "4":
             next = "quit"
 

@@ -1,5 +1,6 @@
 from echecs.controllers.home_controller import HomeController
 from echecs.controllers.player_controller import PlayerController
+from echecs.controllers.tournament_controller import TournamentController
 from echecs.models.store import Store
 
 import subprocess as sp
@@ -10,9 +11,12 @@ class Application:
 
     routes = {
         "homepage": HomeController.main_menu,
+        # players
         "home_player": PlayerController.main_player,
         "list_player": PlayerController.list_player,
         "add_player": PlayerController.add_player,
+        # tournaments
+        "home_tournament": TournamentController.main_tournament,
     }
 
     def __init__(self) -> None:

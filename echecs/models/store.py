@@ -1,4 +1,5 @@
 from echecs.models.storePlayer import StorePlayer
+from echecs.models.storeTournament import StoreTournament
 
 import json
 
@@ -8,6 +9,7 @@ class Store:
     def __init__(self, storage_file="data.json"):
         self.storage_file = storage_file
         self.players = StorePlayer(save_callback=self.save_data)
+        self.tournaments = StoreTournament(save_callback=self.save_data)
         self.load_data()
 
     def save_data(self):
