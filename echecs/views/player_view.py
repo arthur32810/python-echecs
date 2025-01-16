@@ -25,7 +25,7 @@ class PlayerView:
 
         for player in players:
             print(
-                f"{player.id}\t{player.last_name}\t{player.first_name}\t{player.birthday}"
+                f"{player.player_id}\t{player.last_name}\t{player.first_name}\t{player.birthday}"
             )
 
         print("\n------------------------------------")
@@ -55,7 +55,7 @@ class PlayerView:
         print("\n------------------------------------")
 
         return {
-            "id": player_id,
+            "player_id": player_id,
             "first_name": first_name,
             "last_name": last_name,
             "birthday": birthday,
