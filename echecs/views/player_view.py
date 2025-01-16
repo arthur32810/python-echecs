@@ -1,4 +1,5 @@
 from echecs.utils.date_validator import is_valid_date
+from echecs.utils.player_identifiant_validator import is_valid_player_identifiant
 from echecs.views.general_view import GeneralView
 
 
@@ -22,9 +23,9 @@ class PlayerView:
         else:
             print("ID\tNom\tPrénom\tDate de naissance")
 
-        for index, player in enumerate(players):
+        for player in players:
             print(
-                f"{index+1}\t{player.last_name}\t{player.first_name}\t{player.birthday}"
+                f"{player.id}\t{player.last_name}\t{player.first_name}\t{player.birthday}"
             )
 
         print("\n------------------------------------")
@@ -36,14 +37,26 @@ class PlayerView:
 
         first_name = input("Prénom : ")
         last_name = input("Nom : ")
-        birthday = input("Date de naissance (JJ/MM/AAAA) : ")
 
+        birthday = input("Date de naissance (JJ/MM/AAAA) : ")
         while is_valid_date(birthday) is not True:
             print(
-                "erreur dans la date de naissance, veuillez saisir une date au format JJ/MM/AAAA"
+                "Erreur dans la date de naissance, veuillez saisir une date au format JJ/MM/AAAA"
             )
             birthday = input("Date de naissance (JJ/MM/AAAA) : ")
 
+        player_id = input("Identifiant nationnal d'éches : ")
+        while is_valid_player_identifiant(player_id) is not True:
+            print(
+                "Erreur dans le format de l'identifiant. Voilà le format attendu : deux lettres et cinq chiffres (ex: AB12345)"
+            )
+            player_id = input("Identifiant nationnal d'éches : ")
+
         print("\n------------------------------------")
 
-        return last_name, first_name, birthday
+        return {
+            "id": player_id,
+            "first_name": first_name,
+            "last_name": last_name,
+            "birthday": birthday,
+        }

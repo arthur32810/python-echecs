@@ -1,6 +1,8 @@
 from echecs.views.general_view import GeneralView
 from echecs.views.player_view import PlayerView
 
+from echecs.models.player import Player
+
 
 class PlayerController:
 
@@ -24,9 +26,14 @@ class PlayerController:
 
     @staticmethod
     def add_player(store, route_params=None):
-        first_name, last_name, birthday = PlayerView.prompt_for_add_player()
+        data = PlayerView.prompt_for_add_player()
 
-        store.players.add_player(first_name, last_name, birthday)
+        ## Exemple 1
+        # store.players.add_player(**data)
+
+        ##Exemple 2
+        player = Player(**data)
+        store.players.add_player(player)
 
         GeneralView.display_success_message("joueur")
         return "home_player", None
