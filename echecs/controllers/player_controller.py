@@ -28,10 +28,6 @@ class PlayerController:
     def add_player(store, route_params=None):
         data = PlayerView.prompt_for_add_player()
 
-        ## Exemple 1
-        # store.players.add_player(**data)
-
-        ##Exemple 2
         player = Player(**data)
         store.players.add_player(player)
 

@@ -48,7 +48,8 @@ class PlayerView:
         player_id = input("Identifiant nationnal d'éches : ")
         while is_valid_player_identifiant(player_id) is not True:
             print(
-                "Erreur dans le format de l'identifiant. Voilà le format attendu : deux lettres et cinq chiffres (ex: AB12345)"
+                "Erreur dans le format de l'identifiant. Voilà le format attendu :"
+                " deux lettres et cinq chiffres (ex: AB12345)"
             )
             player_id = input("Identifiant nationnal d'éches : ")
 

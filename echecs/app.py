@@ -36,9 +36,7 @@ class Application:
                 # Every controller should return two things:
                 # - the next route to display
                 # - the parameters needed for the next route
-                next_route, next_params = controller_method(
-                    self.store, self.route_params
-                )
+                next_route, next_params = controller_method(self.store, self.route_params)
 
                 # set the next route and input
                 self.route = next_route

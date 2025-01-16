@@ -24,7 +24,13 @@ class Player:
         )
 
     def __str__(self):
-        return f"Le joueur s'appele {self.first_name} {self.last_name}, est né le {self.birthday}, son identifiant est : {self.player_id}"
+        return (
+            f"Le joueur {self.first_name} {self.last_name}, est né le {self.birthday},"
+            " son identifiant est : {self.player_id}"
+        )
 
     def __repr__(self):
-        return f"Joueur( player_id: {self.player_id}, first_name : {self.first_name}, last_name : {self.last_name}, birdthay : {self.birthday})"
+        return (
+            f"Joueur( player_id: {self.player_id}, first_name : {self.first_name}, last_name : {self.last_name},"
+            " birdthay : {self.birthday})"
+        )

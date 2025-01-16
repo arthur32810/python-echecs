@@ -1,6 +1,6 @@
-from echecs.models.storePlayer import StorePlayer
-
 import json
+
+from echecs.models.storePlayer import StorePlayer
 
 
 class Store:

@@ -3,3 +3,9 @@ name = "Echecs CRM"
 
 [black]
 exclude = "env"
+
+[tool.black]
+line-length = 119
+
+[tool.isort]
+profile="black"
