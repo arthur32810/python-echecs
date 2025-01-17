@@ -1,7 +1,6 @@
+from echecs.models.player import Player
 from echecs.views.general_view import GeneralView
 from echecs.views.player_view import PlayerView
-
-from echecs.models.player import Player
 
 
 class PlayerController:

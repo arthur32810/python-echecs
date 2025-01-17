@@ -1,7 +1,7 @@
+import json
+
 from echecs.models.storePlayer import StorePlayer
 from echecs.models.storeTournament import StoreTournament
-
-import json
 
 
 class Store:

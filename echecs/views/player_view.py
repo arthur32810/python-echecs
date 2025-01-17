@@ -1,5 +1,6 @@
 from echecs.utils.date_validator import is_valid_date
-from echecs.utils.player_identifiant_validator import is_valid_player_identifiant
+from echecs.utils.player_identifiant_validator import \
+    is_valid_player_identifiant
 from echecs.views.general_view import GeneralView
 
 
