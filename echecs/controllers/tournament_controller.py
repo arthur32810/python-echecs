@@ -1,3 +1,5 @@
+from echecs.models.tournament import Tournament
+from echecs.views.general_view import GeneralView
 from echecs.views.tournament_view import TournamentView
 
 
@@ -22,5 +24,8 @@ class TournamentController:
     def add_tournament(store, route_params=None):
         data = TournamentView.prompt_for_add_tournament()
 
-        print(data)
-        # return "home_tournament", None
+        tournament = Tournament(**data)
+        store.tournaments.add_tournament(tournament)
+
+        GeneralView.display_success_message("tournois")
+        return "home_tournament", None
