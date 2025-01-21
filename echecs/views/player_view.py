@@ -1,4 +1,3 @@
-from echecs.utils.player_identifiant_validator import is_valid_player_identifiant
 from echecs.views.general_view import GeneralView
 from echecs.views.input_view import InputView
 
@@ -35,16 +34,8 @@ class PlayerView:
 
         first_name = InputView.get_required_input("Prénom : ")
         last_name = InputView.get_required_input("Nom : ")
-
         birthday = InputView.get_date_input("Date de naissance (JJ/MM/AAAA) : ")
-
-        player_id = input("Identifiant nationnal d'éches : ")
-        while is_valid_player_identifiant(player_id) is not True:
-            print(
-                "Erreur dans le format de l'identifiant. Voilà le format attendu :"
-                " deux lettres et cinq chiffres (ex: AB12345)"
-            )
-            player_id = input("Identifiant nationnal d'éches : ")
+        player_id = InputView.get_player_id_input()
 
         print("\n------------------------------------")
 

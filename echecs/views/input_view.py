@@ -1,4 +1,5 @@
 from echecs.utils.date_validator import is_valid_date
+from echecs.utils.player_identifiant_validator import is_valid_player_identifiant
 
 
 class InputView:
@@ -45,15 +46,26 @@ class InputView:
                 print("Erreur : Veuillez entre un nombre entier valide.")
 
     @staticmethod
+    def get_player_id_input():
+        while True:
+            player_id = input("Identifiant nationnal d'échecs : ")
+
+            if is_valid_player_identifiant(player_id):
+                return player_id
+            else:
+                print(
+                    "Erreur dans le format de l'identifiant. Voilà le format attendu :"
+                    " deux lettres et cinq chiffres (ex: AB12345)"
+                )
+
+    @staticmethod
     def get_required_input(text_input):
         """Génére un input avec le texte donné et vérifie qu'il soit rempli"""
 
         while True:
-            try:
-                user_input = input(text_input)
-                if user_input:
-                    return input
-                else:
-                    raise ValueError
-            except ValueError:
+
+            user_input = input(text_input)
+            if user_input:
+                return user_input
+            else:
                 print("Erreur : Veuillez remplir ce champ !")

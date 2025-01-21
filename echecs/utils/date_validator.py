@@ -12,8 +12,7 @@ def is_valid_date(date_string):
         # Essayer de parser la date avec le format JJ/MM/AAAA
         print(datetime.strptime(date_string, "%d/%m/%Y"))
 
-        # return True
-        return False
+        return True
     except ValueError:
         # Si une exception ValueError est levée, la date n'est pas valide
         return False
