@@ -19,9 +19,7 @@ class Player:
     def from_dict(data):
         """Recrée un objet Player à partir d'un dictionanire"""
 
-        return Player(
-            data["player_id"], data["first_name"], data["last_name"], data["birthday"]
-        )
+        return Player(data["player_id"], data["first_name"], data["last_name"], data["birthday"])
 
     def __str__(self):
         return (

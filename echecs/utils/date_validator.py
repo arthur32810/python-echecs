@@ -8,7 +8,7 @@ def is_valid_date(date_string):
     try:
         # Vérifier que la chaîne ne contient que des chiffres et des barres obliques
         if not re.match(r"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/([0-9]{4})$", date_string):
-            print("Erreur dans le format de la date, veuillez saisir une date au format JJ/MM/AAAA")
+            print(f"Erreur dans le format de la date : {date_string}, veuillez saisir une date au format JJ/MM/AAAA")
 
             return False
 
@@ -19,7 +19,7 @@ def is_valid_date(date_string):
 
 
 def is_date_within_130_years(date):
-    """Vérifie qu'une dtae n'a pas plus de 130 ans par rapport à la date du jour"""
+    """Vérifie qu'une date n'a pas plus de 130 ans par rapport à la date du jour"""
     input_date = datetime.strptime(date, "%d/%m/%Y")
 
     current_date = datetime.now()
@@ -41,7 +41,7 @@ def is_date_not_before_today(date):
     if input_date.date() >= current_date.date():
         return True
     else:
-        print("Erreur : la date est inférieur à celle du jour")
+        print(f"Erreur : la date : {date} est inférieur à celle du jour")
         return False
 
 

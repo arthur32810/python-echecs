@@ -45,6 +45,8 @@ class TournamentView:
         round = InputView.get_integer_input("Nombre de tours (par défaut 4) : ")
         note = input("Remarques (optionnel) : ")
 
+        print("\n------------------------------------")
+
         return {
             "name": name,
             "place": place,
