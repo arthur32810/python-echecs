@@ -1,9 +1,9 @@
+import pdb
+import subprocess as sp
+
 from echecs.controllers.home_controller import HomeController
 from echecs.controllers.player_controller import PlayerController
 from echecs.models.store import Store
-
-import subprocess as sp
-import pdb
 
 
 class Application:
