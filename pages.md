@@ -7,11 +7,10 @@
 ====================================
 1. Gestion des joueurs
 2. Gestion des tournois
-3. Afficher les rapports
 
-Q. Quitter le programme
+3. Quitter le programme
 ------------------------------------
-Veuillez sélectionner une option (1-4) :
+Veuillez sélectionner une option (1-3) :
 ```
 
 ## **2. Gestion des Joueurs**
@@ -22,6 +21,7 @@ Veuillez sélectionner une option (1-4) :
 ====================================
 1. Ajouter un joueur
 2. Afficher la liste des joueurs
+
 3. Retour au menu principal
 ------------------------------------
 Veuillez sélectionner une option (1-3) :
@@ -63,6 +63,7 @@ Appuyez sur Entrée pour retourner au menu précédent...
 1. Créer un nouveau tournoi
 2. Ajouter des tours à un tournoi existant
 3. Afficher les rapports d’un tournoi
+
 4. Retour au menu principal
 ------------------------------------
 Veuillez sélectionner une option (1-4) :
@@ -140,50 +141,9 @@ Tours :
 Appuyez sur Entrée pour retourner au menu précédent...
 ```
 
-## **4. Afficher les Rapports**
-### Écran : Afficher les rapports
+### **4. Quitter le programme**
 ```plaintext
 ====================================
-        AFFICHER LES RAPPORTS
-====================================
-1. Liste de tous les joueurs
-2. Liste de tous les tournois
-3. Détails d’un tournoi
-4. Retour au menu principal
-------------------------------------
-Veuillez sélectionner une option (1-4) :
-```
-
-### 4.1 Liste de tous les joueurs
-```plaintext
-====================================
-   LISTE DE TOUS LES JOUEURS
-====================================
-1. [Nom, Prénom] - [Identifiant national]
-2. [Nom, Prénom] - [Identifiant national]
-...
-------------------------------------
-Appuyez sur Entrée pour retourner au menu précédent...
-```
-
-### 4.2 Liste de tous les tournois
-```plaintext
-====================================
-    LISTE DE TOUS LES TOURNOIS
-====================================
-1. [Nom du tournoi 1] - [Dates]
-2. [Nom du tournoi 2] - [Dates]
-...
-------------------------------------
-Appuyez sur Entrée pour retourner au menu précédent...
-```
-
-### 4.3 Détails d’un tournoi
-Répétition de l’écran vu en **3.3** ci-dessus.
-
-### **5. Quitter le programme**
-```plaintext
-====================================
-    MERCI D’AVOIR UTILISÉ L’APPLICATION
+MERCI D’AVOIR UTILISÉ L’APPLICATION
 ====================================
 ```
