@@ -29,27 +29,35 @@ class Application:
     def run(self):
         try:
             while not self.exit:
+                try:
 
-                # Clear the shell output
-                sp.call("clear", shell=True)
+                    # Clear the shell output
+                    sp.call("clear", shell=True)
 
-                # Get the controller method with routes array
-                controller_method = self.routes[self.route]
+                    # Get the controller method with routes array
+                    controller_method = self.routes[self.route]
 
-                # Call the controller method, we pass the store and the route's
-                # parameters.
-                # Every controller should return two things:
-                # - the next route to display
-                # - the parameters needed for the next route
-                next_route, next_params = controller_method(self.store, self.route_params)
+                    # Call the controller method, we pass the store and the route's
+                    # parameters.
+                    # Every controller should return two things:
+                    # - the next route to display
+                    # - the parameters needed for the next route
+                    next_route, next_params = controller_method(self.store, self.route_params)
 
-                # set the next route and input
-                self.route = next_route
-                self.route_params = next_params
+                    # set the next route and input
+                    self.route = next_route
+                    self.route_params = next_params
 
-                # if the controller returned "quit" then we end the loop
-                if next_route == "quit":
+                    # if the controller returned "quit" then we end the loop
+                    if next_route == "quit":
+                        self.exit = True
+                except KeyboardInterrupt:
                     self.exit = True
+
+            # Clear the shell output
+            sp.call("clear", shell=True)
+            HomeController.exit()
+
         except Exception as e:
             print(f"Une erreur est survenue : {e}")
             pdb.post_mortem()

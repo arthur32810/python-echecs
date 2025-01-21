@@ -13,3 +13,7 @@ class HomeView:
         print("------------------------------------")
 
         return InputView.choice_enter_menu(4)
+
+    @staticmethod
+    def exit():
+        GeneralView.display_header("MERCI D’AVOIR UTILISÉ L’APPLICATION")
