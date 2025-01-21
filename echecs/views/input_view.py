@@ -1,4 +1,4 @@
-from echecs.utils.date_validator import is_valid_birthday, is_valid_date
+from echecs.utils.date_validator import is_date_within_130_years, is_valid_date
 from echecs.utils.player_identifiant_validator import is_valid_player_identifiant
 
 
@@ -16,7 +16,7 @@ class InputView:
 
             date = input("Date de naissance (JJ/MM/AAAA) : ")
 
-            if is_valid_date(date) and is_valid_birthday(date):
+            if is_valid_date(date) and is_date_within_130_years(date):
                 return date
 
         # Un joueur ne peut avoir plus de 130 ans

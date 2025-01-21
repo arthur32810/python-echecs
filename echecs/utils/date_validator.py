@@ -18,7 +18,7 @@ def is_valid_date(date_string):
         return False
 
 
-def is_valid_birthday(date):
+def is_date_within_130_years(date):
     """Vérifie qu'une dtae n'a pas plus de 130 ans par rapport à la date du jour"""
     input_date = datetime.strptime(date, "%d/%m/%Y")
 
@@ -29,4 +29,30 @@ def is_valid_birthday(date):
         return True
     else:
         print("Erreur : un joueur ne peut avoir plus de 130 ans !")
+        return False
+
+
+def is_date_not_before_today(date):
+    """Vérifie si la date n'est pas inférieure à celle du jour"""
+
+    input_date = datetime.strptime(date, "%d/%m/%Y")
+    current_date = datetime.now()
+
+    if input_date.date() >= current_date.date():
+        return True
+    else:
+        print("Erreur : la date est inférieur à celle du jour")
+        return False
+
+
+def is_date_not_before(start_date, end_date):
+    """Vérifie que start_date ne soit pas inférieur à end_date"""
+
+    start_date = datetime.strptime(start_date, "%d/%m/%Y")
+    end_date = datetime.strptime(end_date, "%d/%m/%Y")
+
+    if end_date.date() >= start_date.date():
+        return True
+    else:
+        print("Erreur : La date de fin est inférieure à celle du début !")
         return False
