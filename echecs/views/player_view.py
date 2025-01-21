@@ -1,7 +1,6 @@
-from echecs.utils.date_validator import is_valid_date
-from echecs.utils.player_identifiant_validator import \
-    is_valid_player_identifiant
+from echecs.utils.player_identifiant_validator import is_valid_player_identifiant
 from echecs.views.general_view import GeneralView
+from echecs.views.input_view import InputView
 
 
 class PlayerView:
@@ -13,7 +12,7 @@ class PlayerView:
         print("2. Afficher la liste des joueurs")
         print("3. Retour au menu principal")
         print("------------------------------------")
-        return GeneralView.choice_enter_menu(3)
+        return InputView.choice_enter_menu(3)
 
     @staticmethod
     def display_list_player(players):
@@ -34,13 +33,10 @@ class PlayerView:
     def prompt_for_add_player():
         GeneralView.display_header("       AJOUTER UN NOUVEAU JOUEUR")
 
-        first_name = input("Prénom : ")
-        last_name = input("Nom : ")
+        first_name = InputView.get_required_input("Prénom : ")
+        last_name = InputView.get_required_input("Nom : ")
 
-        birthday = input("Date de naissance (JJ/MM/AAAA) : ")
-        while is_valid_date(birthday) is not True:
-            print("Erreur dans la date de naissance, veuillez saisir une date au format JJ/MM/AAAA")
-            birthday = input("Date de naissance (JJ/MM/AAAA) : ")
+        birthday = InputView.get_date_input("Date de naissance (JJ/MM/AAAA) : ")
 
         player_id = input("Identifiant nationnal d'éches : ")
         while is_valid_player_identifiant(player_id) is not True:

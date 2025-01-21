@@ -1,4 +1,5 @@
 from echecs.views.general_view import GeneralView
+from echecs.views.input_view import InputView
 
 
 class HomeView:
@@ -11,4 +12,4 @@ class HomeView:
         print("4. Quitter le programme")
         print("------------------------------------")
 
-        return GeneralView.choice_enter_menu(4)
+        return InputView.choice_enter_menu(4)

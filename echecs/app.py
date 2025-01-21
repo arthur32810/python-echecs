@@ -17,6 +17,7 @@ class Application:
         "add_player": PlayerController.add_player,
         # tournaments
         "home_tournament": TournamentController.main_tournament,
+        "add_tournament": TournamentController.add_tournament,
     }
 
     def __init__(self) -> None:
