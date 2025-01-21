@@ -9,11 +9,11 @@ class PlayerController:
     def main_player(store, route_params=None):
         choice = PlayerView.display_home_player()
 
-        if choice == "1":
+        if choice == 1:
             next = "add_player"
-        elif choice == "2":
+        elif choice == 2:
             next = "list_player"
-        elif choice == "3":
+        elif choice == 3:
             next = "homepage"
 
         return next, None
@@ -27,10 +27,6 @@ class PlayerController:
     def add_player(store, route_params=None):
         data = PlayerView.prompt_for_add_player()
 
-        ## Exemple 1
-        # store.players.add_player(**data)
-
-        ##Exemple 2
         player = Player(**data)
         store.players.add_player(player)
 

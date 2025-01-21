@@ -11,4 +11,4 @@ class HomeView:
         print("4. Quitter le programme")
         print("------------------------------------")
 
-        return input("Veuillez sélectionner une option (1-4) : ")
+        return GeneralView.choice_enter_menu(4)

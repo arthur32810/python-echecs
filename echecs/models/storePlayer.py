@@ -7,11 +7,6 @@ class StorePlayer:
         self.players = []
         self.save_callback = save_callback
 
-    # def add_player(self, id, first_name, last_name, birthday):
-    #     """Enregistre un joueur dans le store"""
-
-    #     self.players.append(Player(id, first_name, last_name, birthday))
-
     def add_player(self, player):
         """Enregistre un joueur dans le store"""
         self.players.append(player)

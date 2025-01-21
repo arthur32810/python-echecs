@@ -77,7 +77,7 @@ Nom du tournoi : [Saisir le nom]
 Lieu : [Saisir le lieu]
 Date de début (JJ/MM/AAAA) : [Saisir la date]
 Date de fin (JJ/MM/AAAA) : [Saisir la date]
-Nombre de tours (par défaut 4) : [Saisir le nombre ou appuyez sur Entrée pour 4]
+Nombre de tours (par défaut 4) : 4 #4 dans notre exemple
 Remarques (optionnel) : [Saisir des remarques]
 ------------------------------------
 [Nouveau tournoi créé avec succès !]
