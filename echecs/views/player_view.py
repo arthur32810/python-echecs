@@ -12,7 +12,7 @@ class PlayerView:
         print("2. Afficher la liste des joueurs")
         print("3. Retour au menu principal")
         print("------------------------------------")
-        return input("Veuillez selectionner une option (1-3) : ")
+        return GeneralView.choice_enter_menu(3)
 
     @staticmethod
     def display_list_player(players):
@@ -24,9 +24,7 @@ class PlayerView:
             print("ID\tNom\tPrénom\tDate de naissance")
 
         for player in players:
-            print(
-                f"{player.player_id}\t{player.last_name}\t{player.first_name}\t{player.birthday}"
-            )
+            print(f"{player.player_id}\t{player.last_name}\t{player.first_name}\t{player.birthday}")
 
         print("\n------------------------------------")
         input("Appuyez sur Entrée pour retourner au menu précédent...")
@@ -40,9 +38,7 @@ class PlayerView:
 
         birthday = input("Date de naissance (JJ/MM/AAAA) : ")
         while is_valid_date(birthday) is not True:
-            print(
-                "Erreur dans la date de naissance, veuillez saisir une date au format JJ/MM/AAAA"
-            )
+            print("Erreur dans la date de naissance, veuillez saisir une date au format JJ/MM/AAAA")
             birthday = input("Date de naissance (JJ/MM/AAAA) : ")
 
         player_id = input("Identifiant nationnal d'éches : ")
