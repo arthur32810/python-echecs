@@ -34,7 +34,9 @@ class PlayerView:
 
         first_name = InputView.get_required_input("Prénom : ")
         last_name = InputView.get_required_input("Nom : ")
-        birthday = InputView.get_date_input("Date de naissance (JJ/MM/AAAA) : ")
+
+        birthday = InputView.get_birthday_input()
+
         player_id = InputView.get_player_id_input()
 
         print("\n------------------------------------")
