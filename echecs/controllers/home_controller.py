@@ -11,7 +11,7 @@ class HomeController:
             next = "home_player"
         elif choice == 2:
             next = "home_tournament"
-        elif choice == 4:
+        elif choice == 3:
             next = "quit"
 
         return next, None

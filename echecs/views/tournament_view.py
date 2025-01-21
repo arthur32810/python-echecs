@@ -16,7 +16,7 @@ class TournamentView:
         print("1. Créer un nouveau tournoi")
         print("2. Ajouter des tours à un tournoi existant")
         print("3. Afficher les rapports d’un tournoi")
-        print("4. Retour au menu principal")
+        print("\n4. Retour au menu principal")
 
         print("------------------------------------")
         return InputView.choice_enter_menu(4)

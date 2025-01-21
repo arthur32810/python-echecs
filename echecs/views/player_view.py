@@ -9,7 +9,7 @@ class PlayerView:
         GeneralView.display_header("        GESTION DES JOUEURS")
         print("1. Ajouter un joueur")
         print("2. Afficher la liste des joueurs")
-        print("3. Retour au menu principal")
+        print("\n3. Retour au menu principal")
         print("------------------------------------")
         return InputView.choice_enter_menu(3)
 

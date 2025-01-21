@@ -9,10 +9,10 @@ class HomeView:
         GeneralView.display_header("  BIENVENUE DANS LE CENTRE ÉCHECS")
         print("1. Gestion des joueurs")
         print("2. Gestion des tournois")
-        print("4. Quitter le programme")
+        print("\n3. Quitter le programme")
         print("------------------------------------")
 
-        return InputView.choice_enter_menu(4)
+        return InputView.choice_enter_menu(3)
 
     @staticmethod
     def exit():
