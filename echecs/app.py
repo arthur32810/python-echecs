@@ -13,7 +13,6 @@ class Application:
         "homepage": HomeController.main_menu,
         # players
         "home_player": PlayerController.main_player,
-        "list_player": PlayerController.list_player,
         "add_player": PlayerController.add_player,
         # tournaments
         "home_tournament": TournamentController.main_tournament,

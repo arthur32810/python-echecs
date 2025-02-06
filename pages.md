@@ -19,10 +19,13 @@ Veuillez sélectionner une option (1-3) :
 ====================================
         GESTION DES JOUEURS
 ====================================
-1. Ajouter un joueur
-2. Afficher la liste des joueurs
+ID       Nom     Prénom  Date de naissance
+AB12345  Robert  Arthur  01/01/1900
+CD67890  Dupont  Paul    10/11/1900
 
-3. Retour au menu principal
+------------------------------------
+1. Ajouter un joueur
+2. Retour au menu principal
 ------------------------------------
 Veuillez sélectionner une option (1-3) :
 ```
@@ -39,19 +42,6 @@ Identifiant national d’échecs : [Saisir l'identifiant]
 ------------------------------------
 [Nouveau joueur ajouté avec succès !]
 Appuyez sur Entrée pour continuer...
-```
-
-### 2.2 Afficher la liste des joueurs
-```plaintext
-====================================
-   LISTE DES JOUEURS (ALPHABÉTIQUE)
-====================================
-ID       Nom     Prénom  Date de naissance
-AB12345  Robert  Arthur  01/01/1900
-CD67890  Dupont  Paul    10/11/1900
-
-------------------------------------
-Appuyez sur Entrée pour retourner au menu précédent...
 ```
 
 ## **3. Gestion des Tournois**
