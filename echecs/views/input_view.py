@@ -22,16 +22,6 @@ class InputView:
         # Un joueur ne peut avoir plus de 130 ans
 
     @staticmethod
-    def choice_enter_menu(max_option):
-        """Affiche le texte de choix et vérifie qu'il soit correct"""
-        choice = int(input(f"Veuillez selectionner une option (1-{max_option}) :"))
-
-        while choice is None or not (1 <= choice <= int(max_option)):
-            choice = int(input(f"Erreur ! Veuillez selectionner une options entre (1-{max_option}) : "))
-
-        return choice
-
-    @staticmethod
     def get_date_input(text_input):
         """
         Génere un champ date avec le texte donné
