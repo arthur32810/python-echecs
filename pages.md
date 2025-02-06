@@ -50,9 +50,13 @@ Appuyez sur Entrée pour continuer...
 ====================================
         GESTION DES TOURNOIS
 ====================================
+ID Nom   Lieu   
+1  Open  Paris  
+2  Open  Toulouse
+3  Open  Bordeaux
+
 1. Créer un nouveau tournoi
-2. Ajouter des tours à un tournoi existant
-3. Afficher les rapports d’un tournoi
+3. Afficher les détails d’un tournoi
 
 4. Retour au menu principal
 ------------------------------------
@@ -72,6 +76,39 @@ Remarques (optionnel) : [Saisir des remarques]
 Appuyez sur Entrée pour continuer...
 ```
 
+### 3.2 Choisir un tournoi
+```plaintext
+====================================
+        GESTION DES TOURNOIS
+====================================
+ID Nom   Lieu   
+1  Open  Paris  
+2  Open  Toulouse
+3  Open  Bordeaux
+
+------------------------------------
+Veuillez sélectionner un tournoi (1-3) :
+```
+
+### 3.3 Détail d'un tournoi
+
+#### 3.3.1 Page détail sans joueur ajouté
+```plaintext
+====================================
+        GESTION DES TOURNOIS
+====================================
+Nom : Open
+Lieu : Paris
+Remarque : Tournois Open de Paris
+
+Joueurs : Aucun joueur pour le moment
+
+1. Ajouter des joueurs au tournoi
+2. Revenir à la liste des tournois
+------------------------------------
+Veuillez sélectionner un tournoi (1-2) :
+```
+<!-- 
 ### 3.2 Ajouter des tours à un tournoi existant
 ```plaintext
 ====================================
@@ -126,7 +163,7 @@ Tours :
     Match 2 : ...
 ------------------------------------
 Appuyez sur Entrée pour retourner au menu précédent...
-```
+``` -->
 
 ### **4. Quitter le programme**
 ```plaintext
