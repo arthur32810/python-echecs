@@ -13,7 +13,7 @@ class Store:
         self.load_data()
 
     def save_data(self):
-        data = {"players": self.players.to_dict()}
+        data = {"players": self.players.to_dict(), "tournaments": self.tournaments.to_dict()}
 
         with open(self.storage_file, "w") as file:
             json.dump(data, file)
@@ -23,6 +23,7 @@ class Store:
             with open(self.storage_file, "r") as file:
                 data = json.load(file)
                 self.players.from_dict(data.get("players", []))
+                self.tournaments.from_dict(data.get("tournaments", []))
 
         except FileNotFoundError:
             print("Fichier demandé non trouve")

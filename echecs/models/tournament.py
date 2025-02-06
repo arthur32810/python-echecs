@@ -1,11 +1,11 @@
 class Tournament:
 
-    def __init__(self, name, place, start_date, end_date, round=4, note=""):
+    def __init__(self, name, place, note=""):
         self.name = name
         self.place = place
-        self.start_date = start_date
-        self.end_date = end_date
-        self.round = round
+        self.start_date = None
+        self.end_date = None
+        self.round = 4
         self.note = note
 
     def to_dict(self):
