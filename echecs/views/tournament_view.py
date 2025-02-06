@@ -26,19 +26,17 @@ class TournamentView:
     def list_tournament(tournaments):
         name_width = max(len(tournament.name) for tournament in tournaments) + 5
         place_width = max(len(tournament.place) for tournament in tournaments) + 5
-        note_width = max(len(tournament.note) for tournament in tournaments) + 5
 
         name_width = max(name_width, len("Nom"))
         place_width = max(place_width, len("Lieu"))
-        note_width = max(note_width, len("Remarques"))
 
         if not tournaments:
             print("\nAucun tournoi enregistré")
         else:
-            print(f"ID {'Nom':<{name_width}} {'Lieu':<{place_width}} {'Remarques':<{note_width}}")
+            print(f"ID {'Nom':<{name_width}} {'Lieu':<{place_width}}")
 
             for index, tournament in enumerate(tournaments):
-                print(f"{index+1:<2} {tournament.name:<{name_width}} {tournament.place:<{place_width}} {tournament.note:<{note_width}}")
+                print(f"{index+1:<2} {tournament.name:<{name_width}} {tournament.place:<{place_width}}")
 
     @staticmethod
     def prompt_for_add_tournament():
@@ -55,3 +53,12 @@ class TournamentView:
             "place": place,
             "note": note,
         }
+
+    @staticmethod
+    def display_select_tournament(tournaments):
+        GeneralView.display_header("      SÉLECTIONNER UN TOURNOI")
+
+        TournamentView.list_tournament(tournaments)
+
+        print("\nSélectionner un tournoi : ")
+        return InputView.choice_enter_menu(len(tournaments))

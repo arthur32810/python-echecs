@@ -12,10 +12,8 @@ class TournamentController:
         if choice == 1:
             next = "add_tournament"
         elif choice == 2:
-            next = "add_round_tournament"
+            next = "select_tournament"
         elif choice == 3:
-            next = "list_rapport_tournament"
-        elif choice == 4:
             next = "homepage"
 
         return next, None
@@ -29,3 +27,9 @@ class TournamentController:
 
         GeneralView.display_success_message("tournois")
         return "home_tournament", None
+
+    @staticmethod
+    def select_tournament(store, route_params=None):
+        choice = TournamentView.display_select_tournament(store.tournaments.get_tournaments())
+
+        print('choix : ', choice)

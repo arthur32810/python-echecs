@@ -79,7 +79,7 @@ Appuyez sur Entrée pour continuer...
 ### 3.2 Choisir un tournoi
 ```plaintext
 ====================================
-        GESTION DES TOURNOIS
+      SÉLECTIONNER UN TOURNOI
 ====================================
 ID Nom   Lieu   
 1  Open  Paris  
@@ -92,7 +92,7 @@ Veuillez sélectionner un tournoi (1-3) :
 
 ### 3.3 Détail d'un tournoi
 
-#### 3.3.1 Page détail sans joueur ajouté
+#### 3.3.1 Page détail
 ```plaintext
 ====================================
         GESTION DES TOURNOIS
