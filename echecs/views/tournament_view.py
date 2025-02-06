@@ -10,16 +10,35 @@ from echecs.views.input_view import InputView
 class TournamentView:
 
     @staticmethod
-    def display_home_tournament():
+    def display_home_tournament(tournaments):
         GeneralView.display_header("        GESTION DES TOURNOIS")
 
-        print("1. Créer un nouveau tournoi")
-        print("2. Ajouter des tours à un tournoi existant")
-        print("3. Afficher les rapports d’un tournoi")
-        print("\n4. Retour au menu principal")
+        TournamentView.list_tournament(tournaments)
+
+        print("\n1. Créer un nouveau tournoi")
+        print("2. Voir les détails d'un tournoi")
+        print("\n3. Retour au menu principal")
 
         print("------------------------------------")
         return InputView.choice_enter_menu(4)
+
+    @staticmethod
+    def list_tournament(tournaments):
+        name_width = max(len(tournament.name) for tournament in tournaments) + 5
+        place_width = max(len(tournament.place) for tournament in tournaments) + 5
+        note_width = max(len(tournament.note) for tournament in tournaments) + 5
+
+        name_width = max(name_width, len("Nom"))
+        place_width = max(place_width, len("Lieu"))
+        note_width = max(note_width, len("Remarques"))
+
+        if not tournaments:
+            print("\nAucun tournoi enregistré")
+        else:
+            print(f"ID {'Nom':<{name_width}} {'Lieu':<{place_width}} {'Remarques':<{note_width}}")
+
+            for index, tournament in enumerate(tournaments):
+                print(f"{index+1:<2} {tournament.name:<{name_width}} {tournament.place:<{place_width}} {tournament.note:<{note_width}}")
 
     @staticmethod
     def prompt_for_add_tournament():

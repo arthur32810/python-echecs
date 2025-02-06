@@ -7,7 +7,7 @@ class TournamentController:
 
     @staticmethod
     def main_tournament(store, route_params=None):
-        choice = TournamentView.display_home_tournament()
+        choice = TournamentView.display_home_tournament(store.tournaments.get_tournaments())
 
         if choice == 1:
             next = "add_tournament"

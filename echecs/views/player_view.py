@@ -20,10 +20,10 @@ class PlayerView:
     def list_player(players):
 
         # Calculer la largeur maximale pour chaque colonne
-        id_width = max(len(player.player_id) for player in players)
-        last_name_width = max(len(player.last_name) for player in players)
-        first_name_width = max(len(player.first_name) for player in players)
-        birthday_width = max(len(player.birthday) for player in players)
+        id_width = max(len(player.player_id) for player in players)+5
+        last_name_width = max(len(player.last_name) for player in players)+5
+        first_name_width = max(len(player.first_name) for player in players)+5
+        birthday_width = max(len(player.birthday) for player in players)+5
 
         # Ajouter un peu d'espace supplémentaire pour les en-têtes
         id_width = max(id_width, len("ID"))
