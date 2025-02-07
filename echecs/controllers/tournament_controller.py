@@ -1,8 +1,8 @@
 from echecs.models.tournament import Tournament
-from echecs.views.general_view import GeneralView
-from echecs.views.tournament_view import TournamentView
-from echecs.views.menu_view import MenuView
 from echecs.views.choices import Choices
+from echecs.views.general_view import GeneralView
+from echecs.views.menu_view import MenuView
+from echecs.views.tournament_view import TournamentView
 
 
 class TournamentController:
@@ -12,7 +12,7 @@ class TournamentController:
         GeneralView.display_header("        GESTION DES TOURNOIS")
         TournamentView.list_tournament(store.tournaments.get_tournaments())
 
-        menu_view = MenuView([Choices.ADD_TOURNAMENT, Choices.SELECT_TOURNAMENT, Choices.HOME])
+        menu_view = MenuView([Choices.ADD_TOURNAMENT, Choices.DETAIL_TOURNAMENT, Choices.HOME])
         menu_view.display()
 
         return menu_view.selected_choice(), None

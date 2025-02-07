@@ -1,7 +1,7 @@
+from echecs.views.choices import Choices
 from echecs.views.general_view import GeneralView
 from echecs.views.home_view import HomeView
 from echecs.views.menu_view import MenuView
-from echecs.views.choices import Choices
 
 
 class HomeController:

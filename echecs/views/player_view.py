@@ -23,12 +23,14 @@ class PlayerView:
             print("\nAucun joueur enregistré")
         else:
             print(
-                f"{'ID':<{id_width}} {'Nom':<{last_name_width}} {'Prénom':<{first_name_width}} {'Date de naissance':<{birthday_width}}"
+                f"{'ID':<{id_width}} {'Nom':<{last_name_width}} ",
+                f"{'Prénom':<{first_name_width}} {'Date de naissance':<{birthday_width}}",
             )
 
             for player in players:
                 print(
-                    f"{player.player_id:<{id_width}} {player.last_name.capitalize():<{last_name_width}} {player.first_name.capitalize():<{first_name_width}} {player.birthday:<{birthday_width}}"
+                    f"{player.player_id:<{id_width}} {player.last_name.capitalize():<{last_name_width}} ",
+                    f"{player.first_name.capitalize():<{first_name_width}} {player.birthday:<{birthday_width}}",
                 )
 
             print("\n------------------------------------")

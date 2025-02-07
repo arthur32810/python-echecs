@@ -30,7 +30,7 @@ class Tournament:
             data["end_date"],
             data["round"],
         )
-    
+
     def __str__(self):
         return (
             f"Le tournoi {self.name}, se déroulera à {self.place},"
