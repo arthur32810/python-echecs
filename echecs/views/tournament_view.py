@@ -11,9 +11,6 @@ class TournamentView:
 
     @staticmethod
     def display_home_tournament(tournaments):
-        GeneralView.display_header("        GESTION DES TOURNOIS")
-
-        TournamentView.list_tournament(tournaments)
 
         print("\n1. Créer un nouveau tournoi")
         print("2. Voir les détails d'un tournoi")
@@ -37,6 +34,8 @@ class TournamentView:
 
             for index, tournament in enumerate(tournaments):
                 print(f"{index+1:<2} {tournament.name:<{name_width}} {tournament.place:<{place_width}}")
+
+            print("\n------------------------------------")
 
     @staticmethod
     def prompt_for_add_tournament():

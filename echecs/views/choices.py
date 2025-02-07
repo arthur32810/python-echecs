@@ -1,5 +1,5 @@
 class Choices:
-    HOME = {"route": "homepage", "text": "Retour à la page d'accueil"}
+    HOME = {"route": "homepage", "text": "Retour au menu principal"}
     HOME_PLAYER = {"route": "home_player", "text": "Aller au menu joueur"}
     ADD_PLAYER = {"route": "add_player", "text": "Ajouter un joueur"}
 

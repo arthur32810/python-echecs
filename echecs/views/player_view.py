@@ -5,40 +5,34 @@ from echecs.views.input_view import InputView
 class PlayerView:
 
     @staticmethod
-    def display_home_player(players):
-        GeneralView.display_header("        GESTION DES JOUEURS")
-
-        PlayerView.list_player(players)
-
-        print("\n------------------------------------")
-        print("1. Ajouter un joueur")
-        print("2. Retour au menu principal")
-        print("------------------------------------")
-        return InputView.choice_enter_menu(2)
-
-    @staticmethod
     def list_player(players):
 
         # Calculer la largeur maximale pour chaque colonne
-        id_width = max(len(player.player_id) for player in players)+5
-        last_name_width = max(len(player.last_name) for player in players)+5
-        first_name_width = max(len(player.first_name) for player in players)+5
-        birthday_width = max(len(player.birthday) for player in players)+5
+        id_width = max(len(player.player_id) for player in players) + 5
+        last_name_width = max(len(player.last_name) for player in players) + 5
+        first_name_width = max(len(player.first_name) for player in players) + 5
+        birthday_width = max(len(player.birthday) for player in players) + 5
 
         # Ajouter un peu d'espace supplémentaire pour les en-têtes
         id_width = max(id_width, len("ID"))
         last_name_width = max(last_name_width, len("Nom"))
         first_name_width = max(first_name_width, len("Prénom"))
-        birthday_width = max(birthday_width, len("Date de naissance")) 
+        birthday_width = max(birthday_width, len("Date de naissance"))
 
         if not players:
             print("\nAucun joueur enregistré")
         else:
-            print(f"{'ID':<{id_width}} {'Nom':<{last_name_width}} {'Prénom':<{first_name_width}} {'Date de naissance':<{birthday_width}}")
+            print(
+                f"{'ID':<{id_width}} {'Nom':<{last_name_width}} {'Prénom':<{first_name_width}} {'Date de naissance':<{birthday_width}}"
+            )
 
             for player in players:
-                print(f"{player.player_id:<{id_width}} {player.last_name.capitalize():<{last_name_width}} {player.first_name.capitalize():<{first_name_width}} {player.birthday:<{birthday_width}}")
-    
+                print(
+                    f"{player.player_id:<{id_width}} {player.last_name.capitalize():<{last_name_width}} {player.first_name.capitalize():<{first_name_width}} {player.birthday:<{birthday_width}}"
+                )
+
+            print("\n------------------------------------")
+
     @staticmethod
     def prompt_for_add_player():
         GeneralView.display_header("       AJOUTER UN NOUVEAU JOUEUR")

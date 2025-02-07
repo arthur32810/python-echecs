@@ -1,22 +1,21 @@
 from echecs.models.tournament import Tournament
 from echecs.views.general_view import GeneralView
 from echecs.views.tournament_view import TournamentView
+from echecs.views.menu_view import MenuView
+from echecs.views.choices import Choices
 
 
 class TournamentController:
 
     @staticmethod
     def main_tournament(store, route_params=None):
-        choice = TournamentView.display_home_tournament(store.tournaments.get_tournaments())
+        GeneralView.display_header("        GESTION DES TOURNOIS")
+        TournamentView.list_tournament(store.tournaments.get_tournaments())
 
-        if choice == 1:
-            next = "add_tournament"
-        elif choice == 2:
-            next = "select_tournament"
-        elif choice == 3:
-            next = "homepage"
+        menu_view = MenuView([Choices.ADD_TOURNAMENT, Choices.SELECT_TOURNAMENT, Choices.HOME])
+        menu_view.display()
 
-        return next, None
+        return menu_view.selected_choice(), None
 
     @staticmethod
     def add_tournament(store, route_params=None):
@@ -32,4 +31,4 @@ class TournamentController:
     def select_tournament(store, route_params=None):
         choice = TournamentView.display_select_tournament(store.tournaments.get_tournaments())
 
-        print('choix : ', choice)
+        print("choix : ", choice)
