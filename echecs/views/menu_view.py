@@ -17,7 +17,7 @@ class MenuView:
 
         while True:
             try:
-                choice = input(f"Veuillez selectionner une option (1-{self.max_option}) :")
+                choice = input(f"Veuillez selectionner une option (1-{self.max_option} / Q) :")
 
                 if choice == "q" or choice == "Q":
                     return "quit"

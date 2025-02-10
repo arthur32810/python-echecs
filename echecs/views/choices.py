@@ -6,7 +6,7 @@ class Choices:
     HOME_TOURNAMENT = {"route": "home_tournament", "text": "Aller au menu tournoi"}
     BACK_HOME_TOURNAMENT = {"route": "home_tournament", "text": "Retour à la liste des tournois"}
 
-    ADD_TOURNAMENT = {"route": "add_tournament", "text": "Ajouter un tournoi"}
+    ADD_TOURNAMENT = {"route": "add_tournament", "text": "Créer un nouveau tournoi"}
     SELECT_TOURNAMENT = {"route": "select_tournament", "text": "Sélectionner un tournoi"}
     DETAIL_TOURNAMENT = {"route": "detail_tournament", "text": "Afficher les détails d'un tournoi"}
 
