@@ -118,8 +118,7 @@ Nom : Open
 Lieu : Paris
 Remarque : Tournois Open de Paris
 
-Sélectionner les joueurs à ajouté
-Joueurs :
+Sélectionner les joueurs à ajouté au tournoi :
 
 ID       Nom     Prénom  Date de naissance
 AB12345  Robert  Arthur  01/01/1900
