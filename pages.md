@@ -124,10 +124,22 @@ ID       Nom     Prénom  Date de naissance
 AB12345  Robert  Arthur  01/01/1900
 CD67890  Dupont  Paul    10/11/1900
 
-1. Ajouter des joueurs au tournoi
-2. Revenir à la liste des tournois
-------------------------------------
-Veuillez sélectionner un tournoi (1-2) :
+Rentrer l'id du joueur 1 : 
+Rentrer l'id du joueur 2 : 
+Rentrer l'id du joueur 3 :
+Rentrer l'id du joueur 4 :
+Rentrer l'id du joueur 5 :
+Rentrer l'id du joueur 6 :
+Rentrer l'id du joueur 7 :
+Rentrer l'id du joueur 8 :
+
+Les 8 joueurs ont été ajouté avec succés !
+
+1. Aller au détail du tournoi
+2. Aller à la liste des tournois
+3. Aller au menu principal
+
+Q. Quitter le programme
 ```
 <!-- 
 
