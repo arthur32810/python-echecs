@@ -95,7 +95,7 @@ Veuillez sélectionner un tournoi (1-3) :
 #### 3.3.1 Page détail
 ```plaintext
 ====================================
-        GESTION DES TOURNOIS
+       DÉTAILS D'UN TOURNOIS
 ====================================
 Nom : Open
 Lieu : Paris

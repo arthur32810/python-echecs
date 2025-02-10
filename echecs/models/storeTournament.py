@@ -17,6 +17,9 @@ class StoreTournament:
     def get_tournaments(self):
         return self.tournaments
 
+    def get_tournament(self, index):
+        return self.tournaments[index]
+
     def to_dict(self):
         return [tournament.to_dict() for tournament in self.tournaments]
 

@@ -1,12 +1,13 @@
 class Tournament:
 
-    def __init__(self, name, place, note="", start_date=None, end_date=None, round=4):
+    def __init__(self, name, place, note="", start_date=None, end_date=None, round=4, players=[]):
         self.name = name
         self.place = place
         self.start_date = start_date
         self.end_date = end_date
         self.round = round
         self.note = note
+        self.players = players
 
     def to_dict(self):
         """Convertit un objet Tournament en dictionnaire pour JSON"""

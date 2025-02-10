@@ -29,6 +29,23 @@ class TournamentController:
 
     @staticmethod
     def select_tournament(store, route_params=None):
-        choice = TournamentView.display_select_tournament(store.tournaments.get_tournaments())
+        selected_tournament = TournamentView.display_select_tournament(store.tournaments.get_tournaments())
 
-        print("choix : ", choice)
+        return "detail_tournament", {"id_tournament": selected_tournament}
+
+    @staticmethod
+    def detail_tournament(store, route_params=None):
+        if not route_params or "id_tournament" not in route_params:
+            return "select_tournament", None
+
+        id_tournament = route_params.get("id_tournament")
+
+        tournament = store.tournaments.get_tournament(id_tournament - 1)
+
+        if not tournament:
+            return "select_tournament", None
+
+        TournamentView.display_tournament_details(tournament)
+
+        print("route params", route_params)
+        pass

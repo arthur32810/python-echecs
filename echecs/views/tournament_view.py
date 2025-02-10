@@ -54,5 +54,20 @@ class TournamentView:
 
         TournamentView.list_tournament(tournaments)
 
-        print("\nSélectionner un tournoi : ")
-        return InputView.choice_enter_menu(len(tournaments))
+        return InputView.selected_choice("Sélectionner un tournoi : ", len(tournaments))
+
+    @staticmethod
+    def display_tournament_details(tournament):
+        GeneralView.display_header("      DÉTAILS DU TOURNOI")
+
+        print(f"Nom : {tournament.name}")
+        print(f"Lieu : {tournament.place}")
+        print(f"Remarques : {tournament.note}")
+
+        if not tournament.players:
+            print("\nJoueurs : Aucun joueur inscrit")
+
+        print("\n------------------------------------")
+        print("1. Ajouter un joueur")
+
+        return InputView.choice_enter_menu(5)

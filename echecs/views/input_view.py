@@ -76,3 +76,20 @@ class InputView:
                 return user_input
             else:
                 print("Erreur : Veuillez remplir ce champ !")
+
+    @staticmethod
+    def selected_choice(text_input, max_option):
+        """Affiche le texte de choix et vérifie qu'il soit correct"""
+
+        while True:
+            try:
+                choice = input(text_input)
+
+                if 1 <= int(choice) <= max_option:
+                    choice = int(choice)
+                    return choice
+                else:
+                    raise ValueError
+
+            except ValueError:
+                print(f"Erreur ! Veuillez selectionner une options entre (1-{max_option}) ")
