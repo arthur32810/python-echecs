@@ -4,6 +4,10 @@ class Choices:
     ADD_PLAYER = {"route": "add_player", "text": "Ajouter un joueur"}
 
     HOME_TOURNAMENT = {"route": "home_tournament", "text": "Aller au menu tournoi"}
+    BACK_HOME_TOURNAMENT = {"route": "home_tournament", "text": "Retour à la liste des tournois"}
+
     ADD_TOURNAMENT = {"route": "add_tournament", "text": "Ajouter un tournoi"}
     SELECT_TOURNAMENT = {"route": "select_tournament", "text": "Sélectionner un tournoi"}
     DETAIL_TOURNAMENT = {"route": "detail_tournament", "text": "Afficher les détails d'un tournoi"}
+
+    ADD_PLAYER_TOURNAMENT = {"route": "add_player_tournament", "text": "Ajouter des joueur au tournoi"}

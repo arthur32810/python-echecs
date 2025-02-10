@@ -68,6 +68,3 @@ class TournamentView:
             print("\nJoueurs : Aucun joueur inscrit")
 
         print("\n------------------------------------")
-        print("1. Ajouter un joueur")
-
-        return InputView.choice_enter_menu(5)

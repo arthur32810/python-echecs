@@ -47,5 +47,9 @@ class TournamentController:
 
         TournamentView.display_tournament_details(tournament)
 
-        print("route params", route_params)
+        menu_view = MenuView([Choices.ADD_PLAYER_TOURNAMENT, Choices.BACK_HOME_TOURNAMENT])
+        menu_view.display()
+
+    @staticmethod
+    def add_player_tournament(store, route_params=None):
         pass

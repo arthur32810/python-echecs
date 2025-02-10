@@ -87,7 +87,7 @@ ID Nom   Lieu
 3  Open  Bordeaux
 
 ------------------------------------
-Veuillez sélectionner un tournoi (1-3) :
+Veuillez sélectionner un tournoi :
 ```
 
 ### 3.3 Détail d'un tournoi
@@ -95,13 +95,13 @@ Veuillez sélectionner un tournoi (1-3) :
 #### 3.3.1 Page détail
 ```plaintext
 ====================================
-       DÉTAILS D'UN TOURNOIS
+       DÉTAILS D'UN TOURNOI
 ====================================
 Nom : Open
 Lieu : Paris
 Remarque : Tournois Open de Paris
 
-Joueurs : Aucun joueur pour le moment
+Joueurs : Aucun joueur inscrit
 
 1. Ajouter des joueurs au tournoi
 2. Revenir à la liste des tournois
@@ -109,17 +109,7 @@ Joueurs : Aucun joueur pour le moment
 Veuillez sélectionner un tournoi (1-2) :
 ```
 <!-- 
-### 3.2 Ajouter des tours à un tournoi existant
-```plaintext
-====================================
-   AJOUTER DES TOURS À UN TOURNOI
-====================================
-Liste des tournois :
-1. [Nom du tournoi 1]
-2. [Nom du tournoi 2]
-...
-Veuillez sélectionner un tournoi (1-... ou 0 pour retourner) :
-```
+
 Si un tournoi est sélectionné :
 ```plaintext
 ====================================
