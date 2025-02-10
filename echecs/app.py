@@ -19,7 +19,6 @@ class Application:
         "add_tournament": TournamentController.add_tournament,
         "select_tournament": TournamentController.select_tournament,
         "detail_tournament": TournamentController.detail_tournament,
-
         "add_player_tournament": TournamentController.add_player_tournament,
     }
 

@@ -108,6 +108,28 @@ Joueurs : Aucun joueur inscrit
 ------------------------------------
 Veuillez sélectionner un tournoi (1-2) :
 ```
+
+#### 3.3.2 Ajout de joueur
+```plaintext
+====================================
+    Ajout des joueurs au tournoi
+====================================
+Nom : Open
+Lieu : Paris
+Remarque : Tournois Open de Paris
+
+Sélectionner les joueurs à ajouté
+Joueurs :
+
+ID       Nom     Prénom  Date de naissance
+AB12345  Robert  Arthur  01/01/1900
+CD67890  Dupont  Paul    10/11/1900
+
+1. Ajouter des joueurs au tournoi
+2. Revenir à la liste des tournois
+------------------------------------
+Veuillez sélectionner un tournoi (1-2) :
+```
 <!-- 
 
 Si un tournoi est sélectionné :
