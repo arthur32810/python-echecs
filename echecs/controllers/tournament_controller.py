@@ -50,6 +50,8 @@ class TournamentController:
         menu_view = MenuView([Choices.ADD_PLAYER_TOURNAMENT, Choices.BACK_HOME_TOURNAMENT])
         menu_view.display()
 
+        return menu_view.selected_choice(), {"id_tournament": id_tournament}
+
     @staticmethod
     def add_player_tournament(store, route_params=None):
         pass

@@ -54,7 +54,7 @@ class TournamentView:
 
         TournamentView.list_tournament(tournaments)
 
-        return InputView.selected_choice("Sélectionner un tournoi : ", len(tournaments))
+        return InputView.selected_choice(f"Sélectionner un tournoi (1-{len(tournaments)}): ", len(tournaments))
 
     @staticmethod
     def display_tournament_details(tournament):
