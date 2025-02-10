@@ -1,5 +1,6 @@
 from echecs.views.general_view import GeneralView
 from echecs.views.input_view import InputView
+from echecs.views.player_view import PlayerView
 
 
 class TournamentView:
@@ -66,5 +67,19 @@ class TournamentView:
 
         if not tournament.players:
             print("\nJoueurs : Aucun joueur inscrit")
+
+        print("\n------------------------------------")
+
+    @staticmethod
+    def display_add_player_tournament(tournament, list_store_players):
+        GeneralView.display_header("      AJOUTER UN JOUEUR AU TOURNOI")
+
+        print(f"Nom : {tournament.name}")
+        print(f"Lieu : {tournament.place}")
+        print(f"Remarques : {tournament.note}")
+
+        print("\nSélectionner les joueurs à ajouter au tournoi : \n")
+
+        PlayerView.list_player(list_store_players)
 
         print("\n------------------------------------")
