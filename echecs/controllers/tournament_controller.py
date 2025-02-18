@@ -12,7 +12,7 @@ class TournamentController:
         GeneralView.display_header("        GESTION DES TOURNOIS")
         TournamentView.list_tournament(store.tournaments.get_tournaments())
 
-        menu_view = MenuView([Choices.ADD_TOURNAMENT, Choices.DETAIL_TOURNAMENT, Choices.HOME])
+        menu_view = MenuView(Choices.ADD_TOURNAMENT, Choices.DETAIL_TOURNAMENT, Choices.HOME)
         menu_view.display()
 
         return menu_view.selected_choice(), None
@@ -42,7 +42,7 @@ class TournamentController:
 
         TournamentView.display_tournament_details(tournament)
 
-        menu_view = MenuView([Choices.ADD_PLAYER_TOURNAMENT, Choices.BACK_HOME_TOURNAMENT])
+        menu_view = MenuView(Choices.ADD_PLAYER_TOURNAMENT, Choices.BACK_HOME_TOURNAMENT)
         menu_view.display()
 
         return menu_view.selected_choice(), {"id_tournament": id_tournament}

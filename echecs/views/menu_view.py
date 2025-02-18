@@ -1,6 +1,6 @@
 class MenuView:
 
-    def __init__(self, choices):
+    def __init__(self, *choices):
         self.choices = choices
         self.max_option = len(choices)
 

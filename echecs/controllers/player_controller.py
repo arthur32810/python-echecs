@@ -13,7 +13,7 @@ class PlayerController:
         GeneralView.display_header("        GESTION DES JOUEURS")
         PlayerView.list_player(store.players.get_players())
 
-        menu_view = MenuView([Choices.ADD_PLAYER, Choices.HOME])
+        menu_view = MenuView(Choices.ADD_PLAYER, Choices.HOME)
         menu_view.display()
 
         return menu_view.selected_choice(), None
