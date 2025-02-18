@@ -1,13 +1,13 @@
 class Tournament:
 
-    def __init__(self, name, place, note="", start_date=None, end_date=None, round=4, players=[]):
+    def __init__(self, name, place, note="", start_date=None, end_date=None, rounds=None, players=None):
         self.name = name
         self.place = place
         self.start_date = start_date
         self.end_date = end_date
-        self.round = round
+        self.rounds = rounds
         self.note = note
-        self.players = players
+        self.players = [players]
 
     def to_dict(self):
         """Convertit un objet Tournament en dictionnaire pour JSON"""
@@ -16,7 +16,7 @@ class Tournament:
             "place": self.place,
             "start_date": self.start_date,
             "end_date": self.end_date,
-            "round": self.round,
+            "rounds": self.rounds,
             "note": self.note,
         }
 
@@ -29,15 +29,12 @@ class Tournament:
             data["note"],
             data["start_date"],
             data["end_date"],
-            data["round"],
+            data["rounds"],
+            data["players"],
         )
 
     def __str__(self):
-        return (
-            f"Le tournoi {self.name}, se déroulera à {self.place},"
-            f" du {self.start_date} au {self.end_date},"
-            f" en {self.round} rondes, remarques : {self.note}"
-        )
+        return f"Le tournoi {self.name}, se déroulera à {self.place}, remarques : {self.note}"
 
     def __repr__(self):
         return (
