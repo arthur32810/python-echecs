@@ -72,6 +72,11 @@ class TournamentView:
         if not tournament.players:
             print("\nJoueurs : Aucun joueur inscrit")
 
+        if tournament.players:
+            print("\nJoueurs :")
+            for player in tournament.players:
+                print(f" - {player.first_name} {player.last_name}")
+
         print("\n------------------------------------")
 
     @staticmethod
