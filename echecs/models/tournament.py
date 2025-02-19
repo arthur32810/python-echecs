@@ -13,7 +13,7 @@ class Tournament:
         self.end_date = end_date
         self.rounds = rounds
         self.note = note
-        self.players = [players]
+        self.players = players
 
     def add_players(self, players):
         """Ajoute des joueurs au tournoi"""
@@ -39,9 +39,15 @@ class Tournament:
         """Recrée un objet Tournament à partir d'un dictionnaire"""
 
         if data["players"]:
+            print("data players", data["players"])
+            print(StorePlayer().get_players())
             players = [StorePlayer().get_player_with_id(player) for player in data["players"]]
+            print("players", players)
         else:
             players = []
+
+        print("players 2", players)
+        raise ValueError("test")
 
         return Tournament(
             data["name"], data["place"], data["note"], data["start_date"], data["end_date"], data["rounds"], players

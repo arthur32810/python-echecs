@@ -74,8 +74,9 @@ class TournamentView:
 
         if tournament.players:
             print("\nJoueurs :")
-            for player in tournament.players:
-                print(f" - {player.first_name} {player.last_name}")
+            # for player in tournament.players:
+            #     print(f" - {player.first_name} {player.last_name}")
+            print(tournament.players)
 
         print("\n------------------------------------")
 
