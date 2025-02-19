@@ -22,10 +22,7 @@ class Player:
         return Player(data["player_id"], data["first_name"], data["last_name"], data["birthday"])
 
     def __str__(self):
-        return (
-            f"Le joueur {self.first_name} {self.last_name}, est né le {self.birthday},"
-            f" son identifiant est : {self.player_id}"
-        )
+        return f"{self.first_name} {self.last_name}, né le {self.birthday}, identifiant : {self.player_id}"
 
     def __repr__(self):
         return (

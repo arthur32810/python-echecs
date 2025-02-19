@@ -14,6 +14,14 @@ class StoreTournament:
         if self.save_callback:
             self.save_callback()
 
+    def add_players_tournament(self, id_tournament, players):
+        """Ajoute un joueur à un tournoi"""
+        tournament = self.get_tournament(id_tournament)
+        tournament.add_players(players)
+
+        if self.save_callback:
+            self.save_callback()
+
     def get_tournaments(self):
         return self.tournaments
 

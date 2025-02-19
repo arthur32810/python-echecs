@@ -56,6 +56,29 @@ class TournamentController:
 
         TournamentView.display_add_player_tournament(tournament, store.players.get_players())
 
+        print("id tournament", id_tournament)
+
+        player_selected = []
+
+        while len(player_selected) < Tournament.MAX_PLAYERS:
+            id_player_choice = input(f"Rentrer l'id du joueur {len(player_selected)+1} :")
+
+            player_choice = store.players.get_player_with_id(id_player_choice)
+
+            if not player_choice:
+                print("Ce joueur n'existe pas")
+
+            elif player_choice in player_selected:
+                print("Ce joueur est déjà sélectionné")
+
+            elif player_choice:
+                player_selected.append(player_choice)
+                print(f"Le joueur {player_choice} a bien été ajouté")
+
+        store.tournaments.add_players_tournament(id_tournament=id_tournament, players=player_selected)
+
+        print(f"Les {Tournament.MAX_PLAYERS} joueurs ont été ajouté avec succès")
+
         pass
 
     def get_tournament(store, route_params=None):
@@ -63,6 +86,6 @@ class TournamentController:
             return False, None
 
         id_tournament = route_params.get("id_tournament")
-        tournament = store.tournaments.get_tournament(id_tournament - 1)
+        tournament = store.tournaments.get_tournament(id_tournament)
 
         return tournament, id_tournament

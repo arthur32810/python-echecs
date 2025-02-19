@@ -17,6 +17,9 @@ class StorePlayer:
     def get_players(self):
         return self.players
 
+    def get_player_with_id(self, id_player):
+        return next((player for player in self.players if player.player_id == id_player), None)
+
     def to_dict(self):
         return [player.to_dict() for player in self.players]
 

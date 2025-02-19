@@ -55,7 +55,11 @@ class TournamentView:
 
         TournamentView.list_tournament(tournaments)
 
-        return InputView.selected_choice(f"Sélectionner un tournoi (1-{len(tournaments)}): ", len(tournaments))
+        id_tournament = InputView.selected_choice(
+            f"Sélectionner un tournoi (1-{len(tournaments)}): ", len(tournaments)
+        )
+
+        return id_tournament - 1
 
     @staticmethod
     def display_tournament_details(tournament):
@@ -72,6 +76,7 @@ class TournamentView:
 
     @staticmethod
     def display_add_player_tournament(tournament, list_store_players):
+
         GeneralView.display_header("      AJOUTER UN JOUEUR AU TOURNOI")
 
         print(f"Nom : {tournament.name}")
@@ -81,5 +86,3 @@ class TournamentView:
         print("\nSélectionner les joueurs à ajouter au tournoi : \n")
 
         PlayerView.list_player(list_store_players)
-
-        print("\n------------------------------------")
