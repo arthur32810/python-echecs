@@ -23,7 +23,7 @@ class Tournament:
         match3 = Match(self.players[4], self.players[5])
         match4 = Match(self.players[6], self.players[7])
 
-        round = Round("round1")
+        round = Round("round1", 1)
         round.matches = [match1, match2, match3, match4]
         self.rounds.append(round)
 

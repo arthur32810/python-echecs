@@ -2,7 +2,9 @@ from echecs.models.tournament import Tournament
 from echecs.views.choices import Choices
 from echecs.views.general_view import GeneralView
 from echecs.views.menu_view import MenuView
+from echecs.views.round_view import RoundView
 from echecs.views.tournament_view import TournamentView
+from echecs.models.constants import TOURNAMENT_ROUNDS
 
 
 class TournamentController:
@@ -85,14 +87,24 @@ class TournamentController:
 
         TournamentView.display_tournament_details(tournament)
 
-        numero_rounds = len(tournament.rounds) + 1
+        if len(tournament.rounds) == 0:
+            tournament.start_tournament()
 
-        while numero_rounds <= 4:
-            numero_rounds = len(tournament.rounds) + 1
+            RoundView.display_round(tournament.rounds[0])
 
-            if numero_rounds == 1:
-                tournament.start_tournament()
+        # while True:
+        #     numero_rounds = len(tournament.rounds)
 
-            print(f"Round {numero_rounds} : ")
+        #     if numero_rounds == 0:
+        #         tournament.start_tournament()
 
-        pass
+        #     if numero_rounds == TOURNAMENT_ROUNDS - 1 and tournament.rounds[TOURNAMENT_ROUNDS - 1].completed:
+        #         GeneralView.display_error_message("Le tournoi est terminé")
+        #         return "detail_tournament", {"id_tournament": id_tournament}
+
+        #     if tournament.rounds[numero_rounds - 1].completed:
+        #         tournament.start_round()
+
+        #     round = tournament.rounds[numero_rounds - 1]
+
+        #     TournamentView.display_round_details(round)
