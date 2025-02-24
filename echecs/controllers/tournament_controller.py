@@ -4,7 +4,7 @@ from echecs.views.general_view import GeneralView
 from echecs.views.menu_view import MenuView
 from echecs.views.round_view import RoundView
 from echecs.views.tournament_view import TournamentView
-from echecs.models.constants import TOURNAMENT_ROUNDS
+from echecs.models.constant import TOURNAMENT_ROUNDS
 
 
 class TournamentController:
@@ -41,6 +41,9 @@ class TournamentController:
 
         if not tournament:
             return "select_tournament", None
+
+        if tournament.rounds:
+            return "tournament_rounds", {"id_tournament": id_tournament}
 
         TournamentView.display_tournament_details(tournament)
 
@@ -90,8 +93,11 @@ class TournamentController:
         if len(tournament.rounds) == 0:
             tournament.start_tournament()
 
-            RoundView.display_round(tournament.rounds[0])
+        if len(tournament.rounds) < TOURNAMENT_ROUNDS:
 
+            route = RoundView.display_round(tournament.rounds[0])
+
+            return route, {"id_tournament": id_tournament}
         # while True:
         #     numero_rounds = len(tournament.rounds)
 

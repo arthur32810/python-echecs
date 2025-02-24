@@ -8,6 +8,6 @@ class Match:
 
     def __str__(self):
         return (
-            f"{self.player1.name} {self.player1.first_name} {self.player1.player_id} - "
-            f"{self.player2.name} {self.player2.first_name} {self.player2.player_id}"
+            f"{self.player1.last_name} {self.player1.first_name} {self.player1.player_id} - "
+            f"{self.player2.last_name} {self.player2.first_name} {self.player2.player_id}"
         )

@@ -2,7 +2,7 @@ from echecs.views.general_view import GeneralView
 from echecs.views.input_view import InputView
 from echecs.views.player_view import PlayerView
 
-from echecs.models.constant import MAX_PLAYERS
+from echecs.models.constant import TOURNAMENT_PLAYERS
 
 
 class TournamentView:
@@ -93,7 +93,7 @@ class TournamentView:
 
         player_selected = []
 
-        while len(player_selected) < MAX_PLAYERS:
+        while len(player_selected) < TOURNAMENT_PLAYERS:
             id_player_choice = input(f"Rentrer l'id du joueur {len(player_selected)+1} :")
 
             player_choice = next(
@@ -115,7 +115,7 @@ class TournamentView:
         return player_selected
 
     def display_message_player_added():
-        print(f"\nLes {MAX_PLAYERS} joueurs ont été ajoutés au tournoi")
+        print(f"\nLes {TOURNAMENT_PLAYERS} joueurs ont été ajoutés au tournoi")
 
     @staticmethod
     def display_tournament_rounds(tournament):
