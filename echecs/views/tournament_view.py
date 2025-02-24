@@ -2,6 +2,8 @@ from echecs.views.general_view import GeneralView
 from echecs.views.input_view import InputView
 from echecs.views.player_view import PlayerView
 
+from echecs.models.constant import MAX_PLAYERS
+
 
 class TournamentView:
 
@@ -74,9 +76,8 @@ class TournamentView:
 
         if tournament.players:
             print("\nJoueurs :")
-            # for player in tournament.players:
-            #     print(f" - {player.first_name} {player.last_name}")
-            print(tournament.players)
+            for player in tournament.players:
+                print(f" - {player.first_name} {player.last_name} - {player.player_id}")
 
         print("\n------------------------------------")
 
@@ -92,3 +93,27 @@ class TournamentView:
         print("\nSélectionner les joueurs à ajouter au tournoi : \n")
 
         PlayerView.list_player(list_store_players)
+
+        player_selected = []
+
+        while len(player_selected) < MAX_PLAYERS:
+            id_player_choice = input(f"Rentrer l'id du joueur {len(player_selected)+1} :")
+
+            player_choice = next((player for player in list_store_players if player.player_id == id_player_choice), None)
+
+            if not player_choice:
+                print("Ce joueur n'existe pas")
+
+            elif player_choice in player_selected:
+                print("Ce joueur est déjà sélectionné")
+
+            elif player_choice:
+                player_selected.append(player_choice)
+                print(f"Le joueur {player_choice} a bien été ajouté")
+
+        print(player_selected)
+
+        return player_selected
+
+    def display_message_player_added():
+        print(f"\nLes {MAX_PLAYERS} joueurs ont été ajoutés au tournoi")

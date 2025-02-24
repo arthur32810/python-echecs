@@ -17,7 +17,7 @@ class StoreTournament:
     def add_players_tournament(self, id_tournament, players):
         """Ajoute un joueur à un tournoi"""
         tournament = self.get_tournament(id_tournament)
-        tournament.add_players(players)
+        tournament.players = players
 
         if self.save_callback:
             self.save_callback()
@@ -31,5 +31,5 @@ class StoreTournament:
     def to_dict(self):
         return [tournament.to_dict() for tournament in self.tournaments]
 
-    def from_dict(self, data):
-        self.tournaments = [Tournament.from_dict(tournament) for tournament in data]
+    def from_dict(self, data, store):
+        self.tournaments = [Tournament.from_dict(tournament, store) for tournament in data]

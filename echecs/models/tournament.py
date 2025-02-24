@@ -1,23 +1,32 @@
-from echecs.models.storePlayer import StorePlayer
-
+from datetime import datetime
 
 class Tournament:
-
-    MAX_ROUNDS = 4
-    MAX_PLAYERS = 2
 
     def __init__(self, name, place, note="", start_date=None, end_date=None, rounds=None, players=None):
         self.name = name
         self.place = place
         self.start_date = start_date
         self.end_date = end_date
-        self.rounds = rounds
+        self.rounds = rounds or []
         self.note = note
-        self.players = players
+        self.players = players or []
 
-    def add_players(self, players):
-        """Ajoute des joueurs au tournoi"""
-        self.players = players
+    def start_tournament(self):
+        """Lance le tournoi"""
+        self.start_date = datetime.now()
+
+        match1= Match(self.players[0], self.players[1])
+        match2= Match(self.players[2], self.players[3])
+        match3= Match(self.players[4], self.players[5])
+        match4= Match(self.players[6], self.players[7])
+        
+        round = Round("round1")
+        round.matches = [match1, match2, match3, match4]
+        self.rounds.append(round)
+
+    def next_round(self):
+        """Passe au prochain round"""
+        pass
 
     def to_dict(self):
         """Convertit un objet Tournament en dictionnaire pour JSON"""
@@ -35,19 +44,16 @@ class Tournament:
         }
 
     @staticmethod
-    def from_dict(data):
+    def from_dict(data, store):
         """Recrée un objet Tournament à partir d'un dictionnaire"""
 
         if data["players"]:
-            print("data players", data["players"])
-            print(StorePlayer().get_players())
-            players = [StorePlayer().get_player_with_id(player) for player in data["players"]]
-            print("players", players)
+
+            players = [store.players.get_player_with_id(player) for player in data["players"]]
+
         else:
             players = []
 
-        print("players 2", players)
-        raise ValueError("test")
 
         return Tournament(
             data["name"], data["place"], data["note"], data["start_date"], data["end_date"], data["rounds"], players

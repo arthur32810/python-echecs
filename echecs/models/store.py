@@ -23,7 +23,7 @@ class Store:
             with open(self.storage_file, "r") as file:
                 data = json.load(file)
                 self.players.from_dict(data.get("players", []))
-                self.tournaments.from_dict(data.get("tournaments", []))
+                self.tournaments.from_dict(data.get("tournaments", []), self)
 
         except FileNotFoundError:
             print("Fichier demandé non trouve")
