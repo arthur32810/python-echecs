@@ -42,9 +42,15 @@ class TournamentController:
 
         TournamentView.display_tournament_details(tournament)
 
-        menu_view = MenuView(Choices.ADD_PLAYER_TOURNAMENT, Choices.BACK_HOME_TOURNAMENT)
-        menu_view.display()
+        menu_view = None
 
+        if not tournament.players:
+            menu_view = MenuView(Choices.ADD_PLAYER_TOURNAMENT, Choices.BACK_HOME_TOURNAMENT)
+
+        elif tournament.players:
+            menu_view = MenuView(Choices.TOURNAMENT_ROUND, Choices.BACK_HOME_TOURNAMENT)
+
+        menu_view.display()
         return menu_view.selected_choice(), {"id_tournament": id_tournament}
 
     @classmethod
@@ -57,7 +63,7 @@ class TournamentController:
         player_selected = TournamentView.display_add_player_tournament(tournament, store.players.get_players())
 
         store.tournaments.add_players_tournament(id_tournament=id_tournament, players=player_selected)
-        
+
         TournamentView.display_message_player_added()
         return "detail_tournament", {"id_tournament": id_tournament}
 
@@ -69,3 +75,24 @@ class TournamentController:
         tournament = store.tournaments.get_tournament(id_tournament)
 
         return tournament, id_tournament
+
+    @classmethod
+    def tournament_rounds(cls, store, route_params=None):
+        tournament, id_tournament = cls.get_tournament(store, route_params)
+
+        if not tournament:
+            return "select_tournament", None
+
+        TournamentView.display_tournament_details(tournament)
+
+        numero_rounds = len(tournament.rounds) + 1
+
+        while numero_rounds <= 4:
+            numero_rounds = len(tournament.rounds) + 1
+
+            if numero_rounds == 1:
+                tournament.start_tournament()
+
+            print(f"Round {numero_rounds} : ")
+
+        pass

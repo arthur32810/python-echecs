@@ -115,20 +115,103 @@ Lieu : Paris
 Remarque : Tournois Open de Paris
 
 Joueurs : 
-    ID       Nom        Prénom    Date de naissance
-1.  AB12345  Robert     Arthur    12/11/1999       
-2.  CD56789  Edouard    Jean      20/05/1982       
-3.  FG85236  Berlioz    Hector    30/06/1952       
-4.  RF58741  Danemaze   Victor    25/12/1993       
-5.  MP65897  Vitelle    Henri     24/07/2002       
-6.  FG45623  Mira       Pablo     12/08/2002       
-7.  GH85142  Berlioz    Maurice   25/09/1932       
-8.  JU58412  Malo       Loan      10/01/2010 
 
-1. Ajouter des joueurs au tournoi
+ID       Nom        Prénom    Date de naissance
+AB12345  Robert     Arthur    12/11/1999       
+CD56789  Edouard    Jean      20/05/1982       
+FG85236  Berlioz    Hector    30/06/1952       
+RF58741  Danemaze   Victor    25/12/1993       
+MP65897  Vitelle    Henri     24/07/2002       
+FG45623  Mira       Pablo     12/08/2002       
+GH85142  Berlioz    Maurice   25/09/1932       
+JU58412  Malo       Loan      10/01/2010 
+
+1. Commencer le tournoi
 2. Revenir à la liste des tournois
 
 Q. Quitter le programme
 ------------------------------------
-Veuillez sélectionner une option (1-3 / Q) :
+Veuillez sélectionner une option (1-2 / Q) :
+```
+
+### 3.5 Round tournoi
+
+#### 3.5.1 Lancement premier round : 
+```plaintext
+====================================
+       DÉTAILS D'UN TOURNOI
+====================================
+Nom : Open
+Lieu : Paris
+Remarque : Tournois Open de Paris
+
+Joueurs : 
+
+ID       Nom        Prénom    Date de naissance
+AB12345  Robert     Arthur    12/11/1999       
+CD56789  Edouard    Jean      20/05/1982       
+FG85236  Berlioz    Hector    30/06/1952       
+RF58741  Danemaze   Victor    25/12/1993       
+MP65897  Vitelle    Henri     24/07/2002       
+FG45623  Mira       Pablo     12/08/2002       
+GH85142  Berlioz    Maurice   25/09/1932       
+JU58412  Malo       Loan      10/01/2010 
+
+Round 1 : 
+    Match 1 : Robert Arthur AB12345 - Edouard Jean CD56789
+    Match 2 : Berlioz Hectore FG85236 - Danemaze Victor RF58741
+    Match 3 : Vitelle Henri MP65897 - Mira Pablo FG45623
+    Match 4 : Bezlioz Maurice GH85142 - Malo Loan JU58412
+
+Résultat Round 1 : 
+    1. Entrez le résultat du Match 1
+    2. Entrez le résultat du Match 2
+    3. Entrez le résultat du Match 3
+    4. Entrez le résultat du Match 4
+
+5. Revenir à la liste des tournois
+
+Q. Quitter le programme
+------------------------------------
+Veuillez sélectionner une option (1-5 / Q) :
+```
+
+#### 3.5.2 Résultat premier round : 
+```plaintext
+====================================
+       DÉTAILS D'UN TOURNOI
+====================================
+Nom : Open
+Lieu : Paris
+Remarque : Tournois Open de Paris
+
+Joueurs : 
+
+ID       Nom        Prénom    Date de naissance
+AB12345  Robert     Arthur    12/11/1999       
+CD56789  Edouard    Jean      20/05/1982       
+FG85236  Berlioz    Hector    30/06/1952       
+RF58741  Danemaze   Victor    25/12/1993       
+MP65897  Vitelle    Henri     24/07/2002       
+FG45623  Mira       Pablo     12/08/2002       
+GH85142  Berlioz    Maurice   25/09/1932       
+JU58412  Malo       Loan      10/01/2010 
+
+Round 1 : 
+    Match 1 : Robert Arthur AB12345 - Edouard Jean CD56789
+    Match 2 : Berlioz Hectore FG85236 - Danemaze Victor RF58741
+    Match 3 : Vitelle Henri MP65897 - Mira Pablo FG45623
+    Match 4 : Bezlioz Maurice GH85142 - Malo Loan JU58412
+
+Résultat Round 1 : 
+    1. Mactch 1 : Résultat saisit
+    2. Entrez le résultat du Match 2
+    3. Entrez le résultat du Match 3
+    4. Entrez le résultat du Match 4
+
+5. Revenir à la liste des tournois
+
+Q. Quitter le programme
+------------------------------------
+Veuillez sélectionner une option (1-5 / Q) :
 ```

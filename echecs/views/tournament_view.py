@@ -75,11 +75,8 @@ class TournamentView:
             print("\nJoueurs : Aucun joueur inscrit")
 
         if tournament.players:
-            print("\nJoueurs :")
-            for player in tournament.players:
-                print(f" - {player.first_name} {player.last_name} - {player.player_id}")
-
-        print("\n------------------------------------")
+            print("\nJoueurs : \n")
+            PlayerView.list_player(tournament.players)
 
     @staticmethod
     def display_add_player_tournament(tournament, list_store_players):
@@ -99,7 +96,9 @@ class TournamentView:
         while len(player_selected) < MAX_PLAYERS:
             id_player_choice = input(f"Rentrer l'id du joueur {len(player_selected)+1} :")
 
-            player_choice = next((player for player in list_store_players if player.player_id == id_player_choice), None)
+            player_choice = next(
+                (player for player in list_store_players if player.player_id == id_player_choice), None
+            )
 
             if not player_choice:
                 print("Ce joueur n'existe pas")

@@ -1,4 +1,7 @@
 from datetime import datetime
+from echecs.models.match import Match
+from echecs.models.round import Round
+
 
 class Tournament:
 
@@ -15,11 +18,11 @@ class Tournament:
         """Lance le tournoi"""
         self.start_date = datetime.now()
 
-        match1= Match(self.players[0], self.players[1])
-        match2= Match(self.players[2], self.players[3])
-        match3= Match(self.players[4], self.players[5])
-        match4= Match(self.players[6], self.players[7])
-        
+        match1 = Match(self.players[0], self.players[1])
+        match2 = Match(self.players[2], self.players[3])
+        match3 = Match(self.players[4], self.players[5])
+        match4 = Match(self.players[6], self.players[7])
+
         round = Round("round1")
         round.matches = [match1, match2, match3, match4]
         self.rounds.append(round)
@@ -53,7 +56,6 @@ class Tournament:
 
         else:
             players = []
-
 
         return Tournament(
             data["name"], data["place"], data["note"], data["start_date"], data["end_date"], data["rounds"], players
