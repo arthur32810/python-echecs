@@ -8,3 +8,6 @@ class Round:
     @property  
     def is_finished(self):
         return all(match.is_finished for match in self.matches)
+
+    def __repr__(self):
+        return f"{self.name} {self.numero_round}"

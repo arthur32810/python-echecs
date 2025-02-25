@@ -88,29 +88,35 @@ class TournamentController:
         if not tournament:
             return "select_tournament", None
 
+        # Affiche les détails du tournoi
         TournamentView.display_tournament_details(tournament)
 
+        # Si le tournoi n'a pas de rounds, on commence le tournoi
         if len(tournament.rounds) == 0:
             tournament.start_tournament()
 
-        if len(tournament.rounds) < TOURNAMENT_ROUNDS:
+        # Si le tournoi a des rounds, on affiche les rounds
+        for round in tournament.rounds:
 
-            route = RoundView.display_round(tournament.rounds[0])
+            RoundView.display_round(round)
+    
+        # Si le tournoi a des rounds, on affiche les rounds
+        last_round = tournament.rounds[-1]
+        RoundView.display_select_result_round(last_round)
+        route, match = RoundView.prompt_for_round_result(last_round)
 
+        if route != "select_winner":
             return route, {"id_tournament": id_tournament}
-        # while True:
-        #     numero_rounds = len(tournament.rounds)
-
-        #     if numero_rounds == 0:
-        #         tournament.start_tournament()
-
-        #     if numero_rounds == TOURNAMENT_ROUNDS - 1 and tournament.rounds[TOURNAMENT_ROUNDS - 1].completed:
-        #         GeneralView.display_error_message("Le tournoi est terminé")
-        #         return "detail_tournament", {"id_tournament": id_tournament}
-
-        #     if tournament.rounds[numero_rounds - 1].completed:
-        #         tournament.start_round()
-
-        #     round = tournament.rounds[numero_rounds - 1]
-
-        #     TournamentView.display_round_details(round)
+        
+        winner = RoundView.prompt_select_winner(match)
+        match winner:
+            case 1:
+                match.player1_win()
+            case 2:
+                match.player2_win()
+            case 3:
+                match.match_nul()
+            case _:
+                return "tournament_rounds", {"id_tournament": id_tournament}
+            
+        return "tournament_rounds", {"id_tournament": id_tournament}  
