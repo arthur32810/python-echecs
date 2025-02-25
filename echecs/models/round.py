@@ -4,4 +4,7 @@ class Round:
         self.name = name
         self.numero_round = numero_round
         self.matches = matches or []
-        self.completed = completed or False
+
+    @property  
+    def is_finished(self):
+        return all(match.is_finished for match in self.matches)

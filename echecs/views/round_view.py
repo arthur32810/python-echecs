@@ -18,7 +18,7 @@ class RoundView:
     def display_choices_round(round):
 
         for index, match in enumerate(round.matches):
-            if match.score_player1 == 0 and match.score_player2 == 0:
+            if not match.is_finished:
                 print(f"\t {index+1}. Entrez le résultat du Match {index+1}")
 
             else:
@@ -43,7 +43,7 @@ class RoundView:
                 elif 1 <= int(choice) <= TOURNAMENT_ROUNDS:
                     choice = int(choice)
 
-                    if round.matches[choice - 1].score_player1 == 0 and round.matches[choice - 1].score_player2 == 0:
+                    if not round.matches[choice - 1].is_finished :
                         print("Entrer le résultat")
                         round.matches[choice - 1].score_player1 = int(input("Score Joueur 1 : "))
                     else:

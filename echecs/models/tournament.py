@@ -1,6 +1,7 @@
 from datetime import datetime
 from echecs.models.match import Match
 from echecs.models.round import Round
+from echecs.models.constant import TOURNAMENT_PLAYERS
 
 
 class Tournament:
@@ -18,13 +19,12 @@ class Tournament:
         """Lance le tournoi"""
         self.start_date = datetime.now()
 
-        match1 = Match(self.players[0], self.players[1])
-        match2 = Match(self.players[2], self.players[3])
-        match3 = Match(self.players[4], self.players[5])
-        match4 = Match(self.players[6], self.players[7])
-
         round = Round("round1", 1)
-        round.matches = [match1, match2, match3, match4]
+
+        for index in range(0, TOURNAMENT_PLAYERS, 2):
+            match = Match(self.players[index], self.players[index + 1])
+            round.matches.append(match)
+       
         self.rounds.append(round)
 
     def next_round(self):

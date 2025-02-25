@@ -110,8 +110,6 @@ class TournamentView:
                 player_selected.append(player_choice)
                 print(f"Le joueur {player_choice} a bien été ajouté")
 
-        print(player_selected)
-
         return player_selected
 
     def display_message_player_added():
