@@ -12,7 +12,7 @@ class RoundView:
             if not match.is_finished:
                 print(f"\t Match {index + 1} : {match}")
 
-            if match.is_finished:
+            else:
                 print(f"\t Match {index + 1} : {match} - Gagnant : {match.winner}")
 
     @staticmethod
