@@ -95,12 +95,12 @@ class TournamentController:
         if len(tournament.rounds) == 0:
             tournament.start_tournament()
 
-        # Si le tournoi a des rounds, on affiche les rounds
+        # On affiche chaque rounds passés
         for round in tournament.rounds:
 
             RoundView.display_round(round)
     
-        # Si le tournoi a des rounds, on affiche les rounds
+        # On Récupére le dernier round pour afficher la saisie des résultats
         last_round = tournament.rounds[-1]
         RoundView.display_select_result_round(last_round)
         route, match = RoundView.prompt_for_round_result(last_round)
@@ -108,6 +108,7 @@ class TournamentController:
         if route != "select_winner":
             return route, {"id_tournament": id_tournament}
         
+        #On demande de choisir qui a gagné le match
         winner = RoundView.prompt_select_winner(match)
         match winner:
             case 1:
