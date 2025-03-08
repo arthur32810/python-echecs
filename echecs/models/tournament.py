@@ -15,27 +15,40 @@ class Tournament:
         self.note = note
         self.players = players or []
         self.score = score or {}
-        
-    def init_score(self):
-        """Initialise le score des joueurs"""
-        for player in self.players:
-            self.score[player] = 0
 
     def start_tournament(self):
         """Lance le tournoi"""
         self.start_date = datetime.now()
         self.init_score()
+        self.init_round(len(self.rounds) + 1)
 
-        round = Round("round1", 1)
+    def init_score(self):
+        """Initialise le score des joueurs"""
+        for player in self.players:
+            self.score[player] = 0
+
+    def init_round(self, numero_round):
+        """Initialise les rounds"""
+        round = Round(f"round{numero_round}", numero_round)
 
         for index in range(0, TOURNAMENT_PLAYERS, 2):
             match = Match(self.players[index], self.players[index + 1])
             round.matches.append(match)
-       
+
         self.rounds.append(round)
+
+    def get_classement(self):
+        """Renvoie le classement des joueurs"""
+        return sorted(self.score.items(), key=lambda x: x[1], reverse=True)
 
     def next_round(self):
         """Passe au prochain round"""
+        available_players = self.get_classement()
+
+        while available_players:
+            first_player = available_players.pop(0)
+            print("joueur ajouté")
+
         pass
 
     def to_dict(self):
