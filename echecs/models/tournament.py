@@ -14,12 +14,12 @@ class Tournament:
         self.rounds = rounds or []
         self.note = note
         self.players = players or []
-        self.score = score or []
+        self.score = score or {}
         
     def init_score(self):
         """Initialise le score des joueurs"""
         for player in self.players:
-            self.score.append({player: 0})
+            self.score[player] = 0
 
     def start_tournament(self):
         """Lance le tournoi"""

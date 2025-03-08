@@ -102,26 +102,31 @@ class TournamentController:
     
         # On Récupére le dernier round pour afficher la saisie des résultats
         last_round = tournament.rounds[-1]
-        RoundView.display_select_result_round(last_round)
-        route, match = RoundView.prompt_for_round_result(last_round)
-
-        if route != "select_winner":
-            return route, {"id_tournament": id_tournament}
         
-        #On demande de choisir qui a gagné le match
-        winner = RoundView.prompt_select_winner(match)
-        match winner:
-            case 1:
-                match.player1_win()
-                store.tournaments.score[match.player1] += 1
-            case 2:
-                match.player2_win()
-                store.tournaments.score[match.player2] += 1
-            case 3:
-                match.match_nul()
-                store.tournaments.score[match.player1] += 0.5
-                store.tournaments.score[match.player2] += 0.5
-            case _:
-                return "tournament_rounds", {"id_tournament": id_tournament}
+        if not last_round.is_finished:
+            RoundView.display_select_result_round(last_round)
+            route, match = RoundView.prompt_for_round_result(last_round)
+
+            if route != "select_winner":
+                return route, {"id_tournament": id_tournament}
+            
+            #On demande de choisir qui a gagné le match
+            winner = RoundView.prompt_select_winner(match)
+            match winner:
+                case 1:
+                    match.player1_win()
+                    tournament.score[match.player1] += 1
+                case 2:
+                    match.player2_win()
+                    tournament.score[match.player2] += 1
+                case 3:
+                    match.match_nul()
+                    tournament.score[match.player1] += 0.5
+                    tournament.score[match.player2] += 0.5
+                case _:
+                    return "tournament_rounds", {"id_tournament": id_tournament}
+        else:
+            print("Round déjà terminé")
+            input("entrez pour continuer")
             
         return "tournament_rounds", {"id_tournament": id_tournament}  
