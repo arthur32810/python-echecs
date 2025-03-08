@@ -113,10 +113,14 @@ class TournamentController:
         match winner:
             case 1:
                 match.player1_win()
+                store.tournaments.score[match.player1] += 1
             case 2:
                 match.player2_win()
+                store.tournaments.score[match.player2] += 1
             case 3:
                 match.match_nul()
+                store.tournaments.score[match.player1] += 0.5
+                store.tournaments.score[match.player2] += 0.5
             case _:
                 return "tournament_rounds", {"id_tournament": id_tournament}
             

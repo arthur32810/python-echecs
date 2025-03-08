@@ -6,7 +6,7 @@ from echecs.models.constant import TOURNAMENT_PLAYERS
 
 class Tournament:
 
-    def __init__(self, name, place, note="", start_date=None, end_date=None, rounds=None, players=None):
+    def __init__(self, name, place, note="", start_date=None, end_date=None, rounds=None, players=None, score=None):
         self.name = name
         self.place = place
         self.start_date = start_date
@@ -14,10 +14,17 @@ class Tournament:
         self.rounds = rounds or []
         self.note = note
         self.players = players or []
+        self.score = score or []
+        
+    def init_score(self):
+        """Initialise le score des joueurs"""
+        for player in self.players:
+            self.score.append({player: 0})
 
     def start_tournament(self):
         """Lance le tournoi"""
         self.start_date = datetime.now()
+        self.init_score()
 
         round = Round("round1", 1)
 
