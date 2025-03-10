@@ -46,7 +46,7 @@ class Tournament:
         available_players = self.get_classement()
 
         while available_players:
-            first_player = available_players.pop(0)
+            first_player = available_players.pop(0)[0]
             print("joueur ajouté")
 
         pass

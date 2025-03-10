@@ -126,8 +126,6 @@ class TournamentController:
                 case _:
                     return "tournament_rounds", {"id_tournament": id_tournament}
         else:
-            print("Round déjà terminé")
-
-            input("entrez pour continuer")
+            tournament.next_round()
 
         return "tournament_rounds", {"id_tournament": id_tournament}
