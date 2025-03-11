@@ -69,7 +69,7 @@ class RoundView:
 
                 choice = int(input("\nVotre choix : "))
 
-                if int(choice) >= 1 or int(choice) <= 3:
+                if int(choice) >= 1 and int(choice) <= 3:
                     return choice
                 else:
                     raise ValueError
