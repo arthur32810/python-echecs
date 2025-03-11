@@ -21,6 +21,12 @@ class Tournament:
         self.start_date = datetime.now()
         self.init_score()
         self.init_round(len(self.rounds) + 1)
+        self.generate_matchs_round()
+
+    def next_round(self):
+        """Passe au prochain round"""
+        self.init_round(len(self.rounds) + 1)
+        self.generate_matchs_round()
 
     def init_score(self):
         """Initialise le score des joueurs"""
@@ -30,27 +36,39 @@ class Tournament:
     def init_round(self, numero_round):
         """Initialise les rounds"""
         round = Round(f"round{numero_round}", numero_round)
-
-        for index in range(0, TOURNAMENT_PLAYERS, 2):
-            match = Match(self.players[index], self.players[index + 1])
-            round.matches.append(match)
-
         self.rounds.append(round)
+        
 
     def get_classement(self):
         """Renvoie le classement des joueurs"""
         return sorted(self.score.items(), key=lambda x: x[1], reverse=True)
 
-    def next_round(self):
+    def generate_matchs_round(self):
         """Passe au prochain round"""
         available_players = self.get_classement()
 
         while available_players:
             first_player = available_players.pop(0)[0]
-            print("joueur ajouté")
+            
+            for adversaire in available_players:
+                if not self.has_played(first_player, adversaire[0]):
+                    second_player = adversaire[0]
+                    match = Match(first_player, second_player)
+                    self.rounds[-1].matches.append(match)
+                    available_players.remove(adversaire)
+                    break
 
-        pass
-
+    def has_played(self, player1, player2):
+        """Vérifie si deux joueurs se sont déjà affrontés"""
+        for round in self.rounds:
+            if round.numero_round == 1:
+                return False
+            
+            for match in round.matches:
+                if player1 in match.players and player2 in match.players:
+                    return True
+        return False
+    
     def to_dict(self):
         """Convertit un objet Tournament en dictionnaire pour JSON"""
 
