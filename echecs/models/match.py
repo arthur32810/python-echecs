@@ -29,7 +29,7 @@ class Match:
         elif self.score_player1 < self.score_player2:
             return self.player2
         elif self.score_player1 == self.score_player2:
-            return None
+            return 'Match nul'
         else:
             return None
         
