@@ -125,7 +125,10 @@ class TournamentController:
                     tournament.score[match.player2] += 0.5
                 case _:
                     return "tournament_rounds", {"id_tournament": id_tournament}
-        else:
+        elif last_round.is_finished and len(tournament.rounds) < TOURNAMENT_ROUNDS:
             tournament.next_round()
+        
+        else:
+            print("Tournoi terminé")
 
         return "tournament_rounds", {"id_tournament": id_tournament}
