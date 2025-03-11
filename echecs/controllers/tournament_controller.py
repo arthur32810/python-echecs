@@ -5,6 +5,7 @@ from echecs.views.menu_view import MenuView
 from echecs.views.round_view import RoundView
 from echecs.views.tournament_view import TournamentView
 from echecs.models.constant import TOURNAMENT_ROUNDS
+from datetime import datetime
 
 
 class TournamentController:
@@ -125,6 +126,15 @@ class TournamentController:
                     tournament.score[match.player2] += 0.5
                 case _:
                     return "tournament_rounds", {"id_tournament": id_tournament}
+                
+            #On défini l'heure de début du round
+            if not last_round.start_date:
+                last_round.start_date = datetime.now()
+            elif last_round.is_finished and not last_round.end_date:
+                last_round.end_date = datetime.now()
+            else:
+                None
+        
         elif last_round.is_finished and len(tournament.rounds) < TOURNAMENT_ROUNDS:
             tournament.next_round()
         
