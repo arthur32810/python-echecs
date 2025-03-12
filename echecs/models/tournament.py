@@ -27,6 +27,10 @@ class Tournament:
         """Passe au prochain round"""
         self.init_round(len(self.rounds) + 1)
         self.generate_matchs_round()
+        
+    def end_tournament(self):
+        """Termine le tournoi"""
+        self.end_date = datetime.now()
 
     def init_score(self):
         """Initialise le score des joueurs"""

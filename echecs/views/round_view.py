@@ -1,12 +1,14 @@
 from echecs.views.choices import Choices
-from echecs.models.constant import TOURNAMENT_ROUNDS
+from echecs.models.constant import TOURNAMENT_ROUNDS, TOURNAMENT_PLAYERS
 
 
 class RoundView:
 
     @staticmethod
     def display_round(round):
-        print(f"Round {round.numero_round} : ")
+        print(f"\nRound {round.numero_round} : ")
+        print(f"Date de début : {round.start_time.strftime("%d/%m/%Y %H:%M")}") if round.start_time else None
+        print(f"Date de fin : {round.end_time.strftime("%d/%m/%Y %H:%M")}") if round.end_time else None
 
         for index, match in enumerate(round.matches):
             if not match.is_finished:
@@ -23,7 +25,7 @@ class RoundView:
             if not match.is_finished:
                 print(f"\t {index+1}. Entrez le résultat du Match {index+1}")
 
-        print("H. Revenir à la liste des tournois")
+        print("\nH. Revenir à la liste des tournois")
 
         print("Q. Quitter le programme")
 
@@ -34,7 +36,7 @@ class RoundView:
 
         while True:
             try:
-                choice = input(f"Veuillez selectionner une option (1-{TOURNAMENT_ROUNDS} / H - Q) :")
+                choice = input(f"Veuillez selectionner une option (1-{TOURNAMENT_PLAYERS //2} / H - Q) :")
 
                 if choice == "q" or choice == "Q":
                     return "quit", None
@@ -42,7 +44,7 @@ class RoundView:
                 elif choice == "h" or choice == "H":
                     return Choices.SELECT_TOURNAMENT["route"] , None
 
-                elif 1 <= int(choice) <= TOURNAMENT_ROUNDS:
+                elif 1 <= int(choice) <= TOURNAMENT_PLAYERS // 2:
                     choice = int(choice)
 
                     if not round.matches[choice - 1].is_finished :
@@ -76,3 +78,7 @@ class RoundView:
             
             except ValueError:
                 print("Erreur ! Veuillez selectionner une option entre 1 et 3")
+
+    def prompt_end_tournament():
+        print("\nLe tournoi est terminé !")
+        input("Appuyer sur entrée pour revenir à la liste des tournois")

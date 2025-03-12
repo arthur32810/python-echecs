@@ -129,3 +129,5 @@ class TournamentView:
             print(f"Ronde {index+1} : {round}")
 
         print("\n------------------------------------")
+
+    

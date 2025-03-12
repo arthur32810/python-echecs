@@ -101,44 +101,55 @@ class TournamentController:
 
             RoundView.display_round(round)
 
-        # On Récupére le dernier round pour afficher la saisie des résultats
-        last_round = tournament.rounds[-1]
+        if tournament.end_date:
+            RoundView.prompt_end_tournament()
+            return "home_tournament", None
 
-        if not last_round.is_finished:
-            RoundView.display_select_result_round(last_round)
-            route, match = RoundView.prompt_for_round_result(last_round)
+        if not tournament.end_date:
 
-            if route != "select_winner":
-                return route, {"id_tournament": id_tournament}
+            # On Récupére le dernier round pour afficher la saisie des résultats
+            last_round = tournament.rounds[-1]
 
-            # On demande de choisir qui a gagné le match
-            winner = RoundView.prompt_select_winner(match)
-            match winner:
-                case 1:
-                    match.player1_win()
-                    tournament.score[match.player1] += 1
-                case 2:
-                    match.player2_win()
-                    tournament.score[match.player2] += 1
-                case 3:
-                    match.match_nul()
-                    tournament.score[match.player1] += 0.5
-                    tournament.score[match.player2] += 0.5
-                case _:
-                    return "tournament_rounds", {"id_tournament": id_tournament}
-                
-            #On défini l'heure de début du round
-            if not last_round.start_date:
-                last_round.start_date = datetime.now()
-            elif last_round.is_finished and not last_round.end_date:
-                last_round.end_date = datetime.now()
+            if not last_round.is_finished:
+                RoundView.display_select_result_round(last_round)
+                route, match = RoundView.prompt_for_round_result(last_round)
+
+                if route != "select_winner":
+                    return route, {"id_tournament": id_tournament}
+
+                # On demande de choisir qui a gagné le match
+                winner = RoundView.prompt_select_winner(match)
+                match winner:
+                    case 1:
+                        match.player1_win()
+                        tournament.score[match.player1] += 1
+                    case 2:
+                        match.player2_win()
+                        tournament.score[match.player2] += 1
+                    case 3:
+                        match.match_nul()
+                        tournament.score[match.player1] += 0.5
+                        tournament.score[match.player2] += 0.5
+                    case _:
+                        return "tournament_rounds", {"id_tournament": id_tournament}
+                    
+                #On défini l'heure de début du round
+                if not last_round.start_time:
+                    last_round.start_time = datetime.now()
+                elif last_round.is_finished and not last_round.end_time:
+                    last_round.end_time = datetime.now()
+                else:
+                    None
+            
+            elif last_round.is_finished and len(tournament.rounds) < TOURNAMENT_ROUNDS:
+                tournament.next_round()
+            
+            elif last_round.is_finished and len(tournament.rounds) == TOURNAMENT_ROUNDS and not tournament.end_date:
+                tournament.end_tournament()
+            
             else:
                 None
-        
-        elif last_round.is_finished and len(tournament.rounds) < TOURNAMENT_ROUNDS:
-            tournament.next_round()
-        
-        else:
-            print("Tournoi terminé")
 
-        return "tournament_rounds", {"id_tournament": id_tournament}
+            return "tournament_rounds", {"id_tournament": id_tournament}
+        else:
+
