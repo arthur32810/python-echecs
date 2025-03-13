@@ -1,4 +1,5 @@
 from echecs.models.match import Match
+from datetime import datetime
 
 
 class Round:
@@ -23,11 +24,17 @@ class Round:
             'name': self.name,
             'numero_round': self.numero_round,
             'matches': matches,
-            'start_time': self.start_time,
-            'end_time': self.end_time
+            'start_time': self.start_time.isoformat() if self.start_time else None,
+            'end_time': self.end_time.isoformat() if self.end_time else None
         }
     
-    def from_dict(self, data):
-        matches = [Match().from_dict(match) for match in data['matches']]
-        
-        return Round(data['name'], data['numero_round'], matches, data['start_time'], data['end_time'])
+    def from_dict(round, store):
+        matches = [Match.from_dict(match, store) for match in round['matches']]
+
+        return Round(
+            round['name'], 
+            round['numero_round'], 
+            matches, 
+            datetime.fromisoformat(round['start_time']) if round['start_time'] else None, 
+            datetime.fromisoformat(round['end_time']) if round['end_time'] else None
+        )

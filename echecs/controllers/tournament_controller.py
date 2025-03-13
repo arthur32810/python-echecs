@@ -6,6 +6,7 @@ from echecs.views.round_view import RoundView
 from echecs.views.tournament_view import TournamentView
 from echecs.models.constant import TOURNAMENT_ROUNDS
 from datetime import datetime
+from echecs.utils.save_on_exit import save_on_exit
 
 
 class TournamentController:
@@ -21,6 +22,7 @@ class TournamentController:
         return menu_view.selected_choice(), None
 
     @staticmethod
+    @save_on_exit(0)
     def add_tournament(store, route_params=None):
         data = TournamentView.prompt_for_add_tournament()
 
@@ -60,6 +62,7 @@ class TournamentController:
         return menu_view.selected_choice(), {"id_tournament": id_tournament}
 
     @classmethod
+    @save_on_exit(0)
     def add_player_tournament(cls, store, route_params=None):
         tournament, id_tournament = cls.get_tournament(store, route_params)
 
@@ -83,6 +86,7 @@ class TournamentController:
         return tournament, id_tournament
 
     @classmethod
+    @save_on_exit(1)
     def tournament_rounds(cls, store, route_params=None):
         tournament, id_tournament = cls.get_tournament(store, route_params)
 

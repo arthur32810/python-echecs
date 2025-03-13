@@ -3,6 +3,7 @@ from echecs.views.choices import Choices
 from echecs.views.general_view import GeneralView
 from echecs.views.menu_view import MenuView
 from echecs.views.player_view import PlayerView
+from echecs.utils.save_on_exit import save_on_exit
 
 
 class PlayerController:
@@ -19,6 +20,7 @@ class PlayerController:
         return menu_view.selected_choice(), None
 
     @staticmethod
+    @save_on_exit(0)
     def add_player(store, route_params=None):
         data = PlayerView.prompt_for_add_player()
 

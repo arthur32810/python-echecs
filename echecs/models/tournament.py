@@ -81,8 +81,8 @@ class Tournament:
         return {
             "name": self.name,
             "place": self.place,
-            "start_date": self.start_date,
-            "end_date": self.end_date,
+            "start_date": self.start_date.isoformat() if self.start_date else None,
+            "end_date": self.end_date.isoformat() if self.end_date else None,
             "note": self.note,
             "players": id_players,
             "rounds": rounds,
@@ -93,10 +93,16 @@ class Tournament:
         """Recrée un objet Tournament à partir d'un dictionnaire"""
 
         players = [store.players.get_player_with_id(player) for player in data["players"]]
-        rounds = [Round().from_dict(round) for round in data["rounds"]]
+        rounds = [Round.from_dict(round, store) for round in data["rounds"]]
 
         return Tournament(
-            data["name"], data["place"], data["note"], data["start_date"], data["end_date"], rounds, players
+            data["name"], 
+            data["place"], 
+            data["note"], 
+            datetime.fromisoformat(data["start_date"]) if data["start_date"] else None, 
+            datetime.fromisoformat(data["end_date"]) if data["end_date"] else None, 
+            rounds, 
+            players
         )
 
     def __str__(self):

@@ -3,16 +3,12 @@ from echecs.models.player import Player
 
 class StorePlayer:
 
-    def __init__(self, save_callback=None):
+    def __init__(self):
         self.players = []
-        self.save_callback = save_callback
 
     def add_player(self, player):
         """Enregistre un joueur dans le store"""
         self.players.append(player)
-
-        if self.save_callback:
-            self.save_callback()
 
     def get_players(self):
         return self.players

@@ -45,11 +45,16 @@ class Match:
     
     def to_dict(self):
         return {
-            'player1': self.player1,
-            'player2': self.player2,
+            'player1': self.player1.player_id,
+            'player2': self.player2.player_id,
             'score_player1': self.score_player1,
             'score_player2': self.score_player2
         }
     
-    def from_dict(self, data):
-        return Match(data['player1'], data['player2'], data['score_player1'], data['score_player2'])
+    def from_dict(match, store):
+        return Match(
+                store.players.get_player_with_id(match['player1']),
+                store.players.get_player_with_id(match['player2']),
+                match['score_player1'],
+                match['score_player2']
+           )
