@@ -42,3 +42,14 @@ class Match:
 
     def __repr__(self):
         return self.__str__()
+    
+    def to_dict(self):
+        return {
+            'player1': self.player1,
+            'player2': self.player2,
+            'score_player1': self.score_player1,
+            'score_player2': self.score_player2
+        }
+    
+    def from_dict(self, data):
+        return Match(data['player1'], data['player2'], data['score_player1'], data['score_player2'])

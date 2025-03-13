@@ -88,13 +88,13 @@ class TournamentController:
 
         if not tournament:
             return "select_tournament", None
-
-        # Affiche les détails du tournoi
-        TournamentView.display_tournament_details(tournament)
-
+        
         # Si le tournoi n'a pas de rounds, on commence le tournoi
         if len(tournament.rounds) == 0:
             tournament.start_tournament()
+
+        # Affiche les détails du tournoi
+        TournamentView.display_tournament_details(tournament)
 
         # On affiche chaque rounds passés
         for round in tournament.rounds:
@@ -151,5 +151,4 @@ class TournamentController:
                 None
 
             return "tournament_rounds", {"id_tournament": id_tournament}
-        else:
 

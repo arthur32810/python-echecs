@@ -1,7 +1,6 @@
 from datetime import datetime
 from echecs.models.match import Match
 from echecs.models.round import Round
-from echecs.models.constant import TOURNAMENT_PLAYERS
 
 
 class Tournament:
@@ -77,6 +76,7 @@ class Tournament:
         """Convertit un objet Tournament en dictionnaire pour JSON"""
 
         id_players = [player.player_id for player in self.players]
+        rounds = [round.to_dict() for round in self.rounds]
 
         return {
             "name": self.name,
@@ -85,22 +85,18 @@ class Tournament:
             "end_date": self.end_date,
             "note": self.note,
             "players": id_players,
-            "rounds": self.rounds,
+            "rounds": rounds,
         }
 
     @staticmethod
     def from_dict(data, store):
         """Recrée un objet Tournament à partir d'un dictionnaire"""
 
-        if data["players"]:
-
-            players = [store.players.get_player_with_id(player) for player in data["players"]]
-
-        else:
-            players = []
+        players = [store.players.get_player_with_id(player) for player in data["players"]]
+        rounds = [Round().from_dict(round) for round in data["rounds"]]
 
         return Tournament(
-            data["name"], data["place"], data["note"], data["start_date"], data["end_date"], data["rounds"], players
+            data["name"], data["place"], data["note"], data["start_date"], data["end_date"], rounds, players
         )
 
     def __str__(self):

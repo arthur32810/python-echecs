@@ -70,6 +70,8 @@ class TournamentView:
         print(f"Nom : {tournament.name}")
         print(f"Lieu : {tournament.place}")
         print(f"Remarques : {tournament.note}")
+        print(f"Date de début : {tournament.start_date.strftime("%d/%m/%Y %H:%M")}") if tournament.start_date else None
+        print(f"Date de fin : {tournament.end_date.strftime("%d/%m/%Y %H:%M")}") if tournament.end_date else None
 
         if not tournament.players:
             print("\nJoueurs : Aucun joueur inscrit")
@@ -114,20 +116,3 @@ class TournamentView:
 
     def display_message_player_added():
         print(f"\nLes {TOURNAMENT_PLAYERS} joueurs ont été ajoutés au tournoi")
-
-    @staticmethod
-    def display_tournament_rounds(tournament):
-        GeneralView.display_header("      RONDES DU TOURNOI")
-
-        print(f"Nom : {tournament.name}")
-        print(f"Lieu : {tournament.place}")
-        print(f"Remarques : {tournament.note}")
-
-        print("\nRondes : \n")
-
-        for index, round in enumerate(tournament.rounds):
-            print(f"Ronde {index+1} : {round}")
-
-        print("\n------------------------------------")
-
-    
