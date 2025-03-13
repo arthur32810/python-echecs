@@ -129,6 +129,7 @@ class TournamentController:
                         tournament.score[match.player1] += 1
                     case 2:
                         match.player2_win()
+                        print(match.player2)
                         tournament.score[match.player2] += 1
                     case 3:
                         match.match_nul()

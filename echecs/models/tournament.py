@@ -78,6 +78,8 @@ class Tournament:
         id_players = [player.player_id for player in self.players]
         rounds = [round.to_dict() for round in self.rounds]
 
+        score = {player.player_id: score for player, score in self.score.items()}
+
         return {
             "name": self.name,
             "place": self.place,
@@ -86,6 +88,7 @@ class Tournament:
             "note": self.note,
             "players": id_players,
             "rounds": rounds,
+            "score": score
         }
 
     @staticmethod
@@ -94,6 +97,7 @@ class Tournament:
 
         players = [store.players.get_player_with_id(player) for player in data["players"]]
         rounds = [Round.from_dict(round, store) for round in data["rounds"]]
+        score = {store.players.get_player_with_id(player): score for player, score in data["score"].items()}
 
         return Tournament(
             data["name"], 
@@ -102,7 +106,8 @@ class Tournament:
             datetime.fromisoformat(data["start_date"]) if data["start_date"] else None, 
             datetime.fromisoformat(data["end_date"]) if data["end_date"] else None, 
             rounds, 
-            players
+            players,
+            score            
         )
 
     def __str__(self):
