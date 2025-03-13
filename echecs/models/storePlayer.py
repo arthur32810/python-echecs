@@ -8,6 +8,11 @@ class StorePlayer:
 
     def add_player(self, player):
         """Enregistre un joueur dans le store"""
+        
+        #Met en capitalize les noms et prénoms
+        player.first_name = player.first_name.capitalize()
+        player.last_name = player.last_name.capitalize()
+        
         self.players.append(player)
 
     def get_players(self):
