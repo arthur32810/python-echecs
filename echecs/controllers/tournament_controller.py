@@ -122,7 +122,14 @@ class TournamentController:
             return menu_view.selected_choice(), {"id_tournament": id_tournament}
 
         if not last_round.is_finished:
-            return "select_winner", {"id_tournament": id_tournament}
+            RoundView.display_select_result_round(last_round)
+            route, match = RoundView.prompt_for_round_result(last_round)
+
+            if route != "select_winner":
+                return route, {"id_tournament": id_tournament}
+            
+            cls.set_winner(tournament, match)
+            return "tournament_rounds", {"id_tournament": id_tournament}
 
         if last_round.is_finished and not last_round.end_time:
             last_round.end_time = datetime.now()
@@ -130,27 +137,13 @@ class TournamentController:
         if last_round.is_finished and len(tournament.rounds) < TOURNAMENT_ROUNDS:
             tournament.next_round()
 
-        if last_round.is_finished and len(tournament.rounds) == TOURNAMENT_ROUNDS and not tournament.end_date:
+        elif last_round.is_finished and len(tournament.rounds) == TOURNAMENT_ROUNDS and not tournament.end_date:
             tournament.end_tournament()
 
         return "tournament_rounds", {"id_tournament": id_tournament}
 
     @classmethod
-    @save_on_exit(1)
-    def select_winner(cls, store, route_params=None):
-
-        tournament, id_tournament = cls.get_tournament(store, route_params)
-
-        if not tournament:
-            return "select_tournament", None
-
-        last_round = tournament.rounds[-1]
-
-        RoundView.display_select_result_round(last_round)
-        route, match = RoundView.prompt_for_round_result(last_round)
-
-        if route != "select_winner":
-            return route, {"id_tournament": id_tournament}
+    def set_winner(cls, tournament, match):
 
         # On demande de choisir qui a gagné le match
         winner = RoundView.prompt_select_winner(match)
@@ -166,8 +159,6 @@ class TournamentController:
                 match.match_nul()
                 tournament.score[match.player1] += 0.5
                 tournament.score[match.player2] += 0.5
-
-        return "tournament_rounds", {"id_tournament": id_tournament}
 
     @classmethod
     @save_on_exit(1)

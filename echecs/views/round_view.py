@@ -1,4 +1,4 @@
-from echecs.models.constant import TOURNAMENT_PLAYERS, TOURNAMENT_ROUNDS
+from echecs.models.constant import TOURNAMENT_PLAYERS
 from echecs.views.choices import Choices
 
 
@@ -57,7 +57,8 @@ class RoundView:
 
             except ValueError:
                 print(
-                    f"Erreur ! Veuillez selectionner une options entre (1-{TOURNAMENT_ROUNDS+1}) ou Q pour quitter: "
+                    f"Erreur ! Veuillez selectionner une options entre "
+                    f"(1-{TOURNAMENT_PLAYERS // 2}) ou Q pour quitter: "
                 )
 
     @staticmethod
