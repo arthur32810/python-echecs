@@ -1,9 +1,9 @@
 from echecs.models.player import Player
+from echecs.utils.save_on_exit import save_on_exit
 from echecs.views.choices import Choices
 from echecs.views.general_view import GeneralView
 from echecs.views.menu_view import MenuView
 from echecs.views.player_view import PlayerView
-from echecs.utils.save_on_exit import save_on_exit
 
 
 class PlayerController:

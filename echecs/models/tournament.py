@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from echecs.models.match import Match
 from echecs.models.round import Round
 
@@ -26,7 +27,7 @@ class Tournament:
         """Passe au prochain round"""
         self.init_round(len(self.rounds) + 1)
         self.generate_matchs_round()
-        
+
     def end_tournament(self):
         """Termine le tournoi"""
         self.end_date = datetime.now()
@@ -40,7 +41,6 @@ class Tournament:
         """Initialise les rounds"""
         round = Round(f"round{numero_round}", numero_round)
         self.rounds.append(round)
-        
 
     def get_classement(self):
         """Renvoie le classement des joueurs"""
@@ -52,7 +52,7 @@ class Tournament:
 
         while available_players:
             first_player = available_players.pop(0)[0]
-            
+
             for adversaire in available_players:
                 if not self.has_played(first_player, adversaire[0]):
                     second_player = adversaire[0]
@@ -66,13 +66,12 @@ class Tournament:
         for round in self.rounds:
             if round.numero_round == 1:
                 return False
-            
+
             for match in round.matches:
                 if player1 in match.players and player2 in match.players:
                     return True
         return False
-    
-    
+
     def to_dict(self):
         """Convertit un objet Tournament en dictionnaire pour JSON"""
 
@@ -89,7 +88,7 @@ class Tournament:
             "note": self.note,
             "players": id_players,
             "rounds": rounds,
-            "score": score
+            "score": score,
         }
 
     @staticmethod
@@ -101,14 +100,14 @@ class Tournament:
         score = {store.players.get_player_with_id(player): score for player, score in data["score"].items()}
 
         return Tournament(
-            data["name"], 
-            data["place"], 
-            data["note"], 
-            datetime.fromisoformat(data["start_date"]) if data["start_date"] else None, 
-            datetime.fromisoformat(data["end_date"]) if data["end_date"] else None, 
-            rounds, 
+            data["name"],
+            data["place"],
+            data["note"],
+            datetime.fromisoformat(data["start_date"]) if data["start_date"] else None,
+            datetime.fromisoformat(data["end_date"]) if data["end_date"] else None,
+            rounds,
             players,
-            score            
+            score,
         )
 
     def __str__(self):

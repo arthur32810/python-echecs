@@ -1,5 +1,5 @@
+from echecs.models.constant import TOURNAMENT_PLAYERS, TOURNAMENT_ROUNDS
 from echecs.views.choices import Choices
-from echecs.models.constant import TOURNAMENT_ROUNDS, TOURNAMENT_PLAYERS
 
 
 class RoundView:
@@ -36,20 +36,20 @@ class RoundView:
 
         while True:
             try:
-                choice = input(f"Veuillez selectionner une option (1-{TOURNAMENT_PLAYERS //2} / H - Q) :")
+                choice = input(f"Veuillez selectionner une option (1-{TOURNAMENT_PLAYERS // 2} / H - Q) :")
 
                 if choice == "q" or choice == "Q":
                     return "quit", None
 
                 elif choice == "h" or choice == "H":
-                    return Choices.SELECT_TOURNAMENT["route"] , None
+                    return Choices.SELECT_TOURNAMENT["route"], None
 
                 elif 1 <= int(choice) <= TOURNAMENT_PLAYERS // 2:
                     choice = int(choice)
 
-                    if not round.matches[choice - 1].is_finished :
+                    if not round.matches[choice - 1].is_finished:
                         return "select_winner", round.matches[choice - 1]
-                        
+
                     else:
                         print("Résultat déjà saisi\n")
                 else:
@@ -75,7 +75,7 @@ class RoundView:
                     return choice
                 else:
                     raise ValueError
-            
+
             except ValueError:
                 print("Erreur ! Veuillez selectionner une option entre 1 et 3")
 

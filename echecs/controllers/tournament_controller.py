@@ -1,12 +1,13 @@
+from datetime import datetime
+
+from echecs.models.constant import TOURNAMENT_ROUNDS
 from echecs.models.tournament import Tournament
+from echecs.utils.save_on_exit import save_on_exit
 from echecs.views.choices import Choices
 from echecs.views.general_view import GeneralView
 from echecs.views.menu_view import MenuView
 from echecs.views.round_view import RoundView
 from echecs.views.tournament_view import TournamentView
-from echecs.models.constant import TOURNAMENT_ROUNDS
-from datetime import datetime
-from echecs.utils.save_on_exit import save_on_exit
 
 
 class TournamentController:
@@ -89,15 +90,15 @@ class TournamentController:
     @save_on_exit(1)
     def tournament_rounds(cls, store, route_params=None):
 
-        #On récupére le tournoi et son id
+        # On récupére le tournoi et son id
         tournament, id_tournament = cls.get_tournament(store, route_params)
 
         if not tournament:
             return "select_tournament", None
-        
+
         if tournament.end_date:
             return "end_tournament", {"id_tournament": id_tournament}
-        
+
         # Si le tournoi n'a pas de rounds, on commence le tournoi
         if len(tournament.rounds) == 0:
             tournament.start_tournament()
@@ -143,21 +144,21 @@ class TournamentController:
                     tournament.score[match.player2] += 0.5
                 case _:
                     return "tournament_rounds", {"id_tournament": id_tournament}
-                
-            #On défini l'heure de début du round
+
+            # On défini l'heure de début du round
             if not last_round.start_time:
                 last_round.start_time = datetime.now()
             elif last_round.is_finished and not last_round.end_time:
                 last_round.end_time = datetime.now()
             else:
                 None
-        
+
         elif last_round.is_finished and len(tournament.rounds) < TOURNAMENT_ROUNDS:
             tournament.next_round()
-        
+
         elif last_round.is_finished and len(tournament.rounds) == TOURNAMENT_ROUNDS and not tournament.end_date:
             tournament.end_tournament()
-        
+
         else:
             None
 
@@ -178,7 +179,7 @@ class TournamentController:
             last_round.start_time = datetime.now()
 
         return "tournament_rounds", {"id_tournament": id_tournament}
-    
+
     @classmethod
     def end_tournament(cls, store, route_params=None):
         tournament, id_tournament = cls.get_tournament(store, route_params)
@@ -186,16 +187,15 @@ class TournamentController:
         if not tournament:
             return "select_tournament", None
 
-         # Affiche les détails du tournoi
+        # Affiche les détails du tournoi
         TournamentView.display_tournament_details(tournament)
 
-         # On affiche chaque rounds passés
+        # On affiche chaque rounds passés
         for round in tournament.rounds:
 
             RoundView.display_round(round)
-        
+
         classement = tournament.get_classement()
         TournamentView.display_classement(classement)
         RoundView.prompt_end_tournament()
         return "home_tournament", None
-

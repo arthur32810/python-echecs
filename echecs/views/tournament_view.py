@@ -1,8 +1,7 @@
+from echecs.models.constant import TOURNAMENT_PLAYERS
 from echecs.views.general_view import GeneralView
 from echecs.views.input_view import InputView
 from echecs.views.player_view import PlayerView
-
-from echecs.models.constant import TOURNAMENT_PLAYERS
 
 
 class TournamentView:
@@ -116,7 +115,6 @@ class TournamentView:
 
     def display_message_player_added():
         print(f"\nLes {TOURNAMENT_PLAYERS} joueurs ont été ajoutés au tournoi")
-
 
     @staticmethod
     def display_classement(classement):
