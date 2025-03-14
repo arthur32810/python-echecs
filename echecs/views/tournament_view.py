@@ -2,6 +2,7 @@ from echecs.models.constant import TOURNAMENT_PLAYERS
 from echecs.views.general_view import GeneralView
 from echecs.views.input_view import InputView
 from echecs.views.player_view import PlayerView
+from echecs.views.round_view import RoundView
 
 
 class TournamentView:
@@ -78,6 +79,10 @@ class TournamentView:
         if tournament.players:
             print("\nJoueurs : \n")
             PlayerView.list_player(tournament.players)
+
+        # On affiche chaque rounds passés
+        for round in tournament.rounds:
+            RoundView.display_round(round)
 
     @staticmethod
     def display_add_player_tournament(tournament, list_store_players):

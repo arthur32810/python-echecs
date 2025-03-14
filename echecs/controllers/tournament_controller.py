@@ -90,7 +90,6 @@ class TournamentController:
     @save_on_exit(1)
     def tournament_rounds(cls, store, route_params=None):
 
-        # On récupére le tournoi et son id
         tournament, id_tournament = cls.get_tournament(store, route_params)
 
         if not tournament:
@@ -107,11 +106,6 @@ class TournamentController:
         # Affiche les détails du tournoi
         TournamentView.display_tournament_details(tournament)
 
-        # On affiche chaque rounds passés
-        for round in tournament.rounds:
-
-            RoundView.display_round(round)
-
         # On Récupére le dernier round pour afficher la saisie des résultats
         last_round = tournament.rounds[-1]
 
@@ -127,7 +121,7 @@ class TournamentController:
 
             if route != "select_winner":
                 return route, {"id_tournament": id_tournament}
-            
+
             cls.set_winner(tournament, match)
             return "tournament_rounds", {"id_tournament": id_tournament}
 

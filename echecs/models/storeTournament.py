@@ -19,7 +19,10 @@ class StoreTournament:
         return self.tournaments
 
     def get_tournament(self, index):
-        return self.tournaments[index]
+        if index <= len(self.tournaments):
+            return self.tournaments[index]
+        else:
+            return None
 
     def to_dict(self):
         return [tournament.to_dict() for tournament in self.tournaments]

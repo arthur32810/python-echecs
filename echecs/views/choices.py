@@ -8,7 +8,7 @@ class Choices:
 
     ADD_TOURNAMENT = {"route": "add_tournament", "text": "Créer un nouveau tournoi"}
     SELECT_TOURNAMENT = {"route": "select_tournament", "text": "Sélectionner un tournoi"}
-    DETAIL_TOURNAMENT = {"route": "detail_tournament", "text": "Afficher les détails d'un tournoi"}
+    DETAIL_TOURNAMENT = {"route": "select_tournament", "text": "Afficher les détails d'un tournoi"}
 
     ADD_PLAYER_TOURNAMENT = {"route": "add_player_tournament", "text": "Ajouter des joueur au tournoi"}
 

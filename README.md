@@ -4,7 +4,8 @@
 Pour créer votre environnemenet dédié au projet, nous vous recommandons d'executer la commande suivante : `python -m venv env`
 
 ## 2. Activation de l'environnement virtuel
-Pour activer l'environnement virtuel, que nous venons de créer, entrer la commander suivante : `source env/bin/activite`
+Pour activer l'environnement virtuel, que nous venons de créer.
+Par exemple pour linux, entrer la commander suivante : `source env/bin/activate`
 
 ## 3. Installer les dépendances du projet
 Une fois l'environnement activé, pour installer les dépendances du projet il faut executer la commande suivante : 
