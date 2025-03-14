@@ -22,6 +22,7 @@ class Application:
         "add_player_tournament": TournamentController.add_player_tournament,
         "tournament_rounds": TournamentController.tournament_rounds,
         "start_round": TournamentController.start_round,
+        "select_winner": TournamentController.select_winner,
         "end_tournament": TournamentController.end_tournament,
     }
 

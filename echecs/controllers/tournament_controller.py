@@ -122,45 +122,50 @@ class TournamentController:
             return menu_view.selected_choice(), {"id_tournament": id_tournament}
 
         if not last_round.is_finished:
-            RoundView.display_select_result_round(last_round)
-            route, match = RoundView.prompt_for_round_result(last_round)
+            return "select_winner", {"id_tournament": id_tournament}
 
-            if route != "select_winner":
-                return route, {"id_tournament": id_tournament}
+        if last_round.is_finished and not last_round.end_time:
+            last_round.end_time = datetime.now()
 
-            # On demande de choisir qui a gagné le match
-            winner = RoundView.prompt_select_winner(match)
-            match winner:
-                case 1:
-                    match.player1_win()
-                    tournament.score[match.player1] += 1
-                case 2:
-                    match.player2_win()
-                    print(match.player2)
-                    tournament.score[match.player2] += 1
-                case 3:
-                    match.match_nul()
-                    tournament.score[match.player1] += 0.5
-                    tournament.score[match.player2] += 0.5
-                case _:
-                    return "tournament_rounds", {"id_tournament": id_tournament}
-
-            # On défini l'heure de début du round
-            if not last_round.start_time:
-                last_round.start_time = datetime.now()
-            elif last_round.is_finished and not last_round.end_time:
-                last_round.end_time = datetime.now()
-            else:
-                None
-
-        elif last_round.is_finished and len(tournament.rounds) < TOURNAMENT_ROUNDS:
+        if last_round.is_finished and len(tournament.rounds) < TOURNAMENT_ROUNDS:
             tournament.next_round()
 
-        elif last_round.is_finished and len(tournament.rounds) == TOURNAMENT_ROUNDS and not tournament.end_date:
+        if last_round.is_finished and len(tournament.rounds) == TOURNAMENT_ROUNDS and not tournament.end_date:
             tournament.end_tournament()
 
-        else:
-            None
+        return "tournament_rounds", {"id_tournament": id_tournament}
+
+    @classmethod
+    @save_on_exit(1)
+    def select_winner(cls, store, route_params=None):
+
+        tournament, id_tournament = cls.get_tournament(store, route_params)
+
+        if not tournament:
+            return "select_tournament", None
+
+        last_round = tournament.rounds[-1]
+
+        RoundView.display_select_result_round(last_round)
+        route, match = RoundView.prompt_for_round_result(last_round)
+
+        if route != "select_winner":
+            return route, {"id_tournament": id_tournament}
+
+        # On demande de choisir qui a gagné le match
+        winner = RoundView.prompt_select_winner(match)
+        match winner:
+            case 1:
+                match.player1_win()
+                tournament.score[match.player1] += 1
+            case 2:
+                match.player2_win()
+                print(match.player2)
+                tournament.score[match.player2] += 1
+            case 3:
+                match.match_nul()
+                tournament.score[match.player1] += 0.5
+                tournament.score[match.player2] += 0.5
 
         return "tournament_rounds", {"id_tournament": id_tournament}
 
