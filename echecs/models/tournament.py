@@ -72,6 +72,7 @@ class Tournament:
                     return True
         return False
     
+    
     def to_dict(self):
         """Convertit un objet Tournament en dictionnaire pour JSON"""
 

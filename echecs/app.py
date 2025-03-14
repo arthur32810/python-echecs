@@ -21,6 +21,8 @@ class Application:
         "detail_tournament": TournamentController.detail_tournament,
         "add_player_tournament": TournamentController.add_player_tournament,
         "tournament_rounds": TournamentController.tournament_rounds,
+        "start_round": TournamentController.start_round,
+        "end_tournament": TournamentController.end_tournament,
     }
 
     def __init__(self) -> None:

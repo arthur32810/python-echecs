@@ -13,3 +13,5 @@ class Choices:
     ADD_PLAYER_TOURNAMENT = {"route": "add_player_tournament", "text": "Ajouter des joueur au tournoi"}
 
     TOURNAMENT_ROUND = {"route": "tournament_rounds", "text": "Commencer le tournoi"}
+
+    START_ROUND = {"route": "start_round", "text": "Commencer le round"}

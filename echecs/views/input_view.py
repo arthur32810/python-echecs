@@ -93,3 +93,4 @@ class InputView:
 
             except ValueError:
                 print(f"Erreur ! Veuillez selectionner une options entre (1-{max_option}) ")
+

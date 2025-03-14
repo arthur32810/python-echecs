@@ -15,9 +15,6 @@ class StoreTournament:
         tournament = self.get_tournament(id_tournament)
         tournament.players = players
 
-        if self.save_callback:
-            self.save_callback()
-
     def get_tournaments(self):
         return self.tournaments
 

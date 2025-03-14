@@ -117,6 +117,7 @@ class TournamentView:
     def display_message_player_added():
         print(f"\nLes {TOURNAMENT_PLAYERS} joueurs ont été ajoutés au tournoi")
 
+
     @staticmethod
     def display_classement(classement):
 
