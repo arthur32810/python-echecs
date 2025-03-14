@@ -5,14 +5,12 @@ from echecs.views.input_view import InputView
 class PlayerView:
 
     @staticmethod
-    def order_players(players):
-        return sorted(players, key=lambda player: player.last_name)
+    def display_alphabetic_players(players):
+        players = sorted(players, key=lambda player: player.last_name)
+        PlayerView.list_player(players)
 
     @staticmethod
     def list_player(players):
-
-        # Trier les joueurs par nom de famille
-        players = PlayerView.order_players(players)
 
         # Calculer la largeur maximale pour chaque colonne
         id_width = max(len(player.player_id) for player in players) + 5
