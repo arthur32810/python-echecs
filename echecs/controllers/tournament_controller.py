@@ -106,6 +106,9 @@ class TournamentController:
             RoundView.display_round(round)
 
         if tournament.end_date:
+            #Récupére le classement global et affiche les joueurs
+            classement = tournament.get_classement()
+            TournamentView.display_classement(classement)
             RoundView.prompt_end_tournament()
             return "home_tournament", None
 

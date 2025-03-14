@@ -116,3 +116,13 @@ class TournamentView:
 
     def display_message_player_added():
         print(f"\nLes {TOURNAMENT_PLAYERS} joueurs ont été ajoutés au tournoi")
+
+    @staticmethod
+    def display_classement(classement):
+
+        print("\nClassement :")
+
+        for index, player in enumerate(classement):
+            print(f"\t{index+1}. {player[0]} - {player[1]} points")
+
+        print("\n------------------------------------")
