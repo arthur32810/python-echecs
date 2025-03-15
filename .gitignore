@@ -2,8 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
 .vscode
-flake-report/
-# data.json
+data.json
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
