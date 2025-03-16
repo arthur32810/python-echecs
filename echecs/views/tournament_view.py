@@ -19,15 +19,16 @@ class TournamentView:
 
     @staticmethod
     def list_tournament(tournaments):
-        name_width = max(len(tournament.name) for tournament in tournaments) + 5
-        place_width = max(len(tournament.place) for tournament in tournaments) + 5
-
-        name_width = max(name_width, len("Nom"))
-        place_width = max(place_width, len("Lieu"))
 
         if not tournaments:
-            print("\nAucun tournoi enregistré")
+            print("\nAucun tournoi enregistré \n")
         else:
+            name_width = max(len(tournament.name) for tournament in tournaments) + 5
+            place_width = max(len(tournament.place) for tournament in tournaments) + 5
+
+            name_width = max(name_width, len("Nom"))
+            place_width = max(place_width, len("Lieu"))
+
             print(f"ID {'Nom':<{name_width}} {'Lieu':<{place_width}}")
 
             for index, tournament in enumerate(tournaments):
