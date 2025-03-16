@@ -75,7 +75,7 @@ class TournamentView:
         print(f"Date de fin : {tournament.end_date.strftime("%d/%m/%Y %H:%M")}") if tournament.end_date else None
 
         if not tournament.players:
-            print("\nJoueurs : Aucun joueur inscrit")
+            print("\nJoueurs : Aucun joueur inscrit \n")
 
         if tournament.players:
             print("\nJoueurs : \n")
@@ -85,14 +85,7 @@ class TournamentView:
         for round in tournament.rounds:
             RoundView.display_round(round)
 
-    @staticmethod
     def display_add_player_tournament(tournament, list_store_players):
-
-        GeneralView.display_header("      AJOUTER UN JOUEUR AU TOURNOI")
-
-        print(f"Nom : {tournament.name}")
-        print(f"Lieu : {tournament.place}")
-        print(f"Remarques : {tournament.note}")
 
         print("\nSélectionner les joueurs à ajouter au tournoi : \n")
 

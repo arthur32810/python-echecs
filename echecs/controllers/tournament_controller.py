@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from echecs.models.constant import TOURNAMENT_ROUNDS
+from echecs.models.constant import TOURNAMENT_ROUNDS, TOURNAMENT_PLAYERS
 from echecs.models.tournament import Tournament
 from echecs.utils.save_on_exit import save_on_exit
 from echecs.views.choices import Choices
@@ -69,6 +69,16 @@ class TournamentController:
 
         if not tournament:
             return "select_tournament", None
+
+        TournamentView.display_tournament_details(tournament)
+
+        # Vérifie si suffisamment de joueurs enregistré dans la base
+        if len(store.players.get_players()) < TOURNAMENT_PLAYERS:
+            GeneralView.display_message(
+                "Il n'y a pas assez de joueurs enregistrés pour créer un tournoi\n"
+                "Veuillez ajouter des joueurs avant de continuer."
+            )
+            return "home_player", None
 
         player_selected = TournamentView.display_add_player_tournament(tournament, store.players.get_players())
 

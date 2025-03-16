@@ -13,3 +13,9 @@ class GeneralView:
         """Affiche un message"""
         print(f"[Nouveau {entity_name} ajouté avec succès !]")
         input("Appuyez sur Entrée pour continuer...")
+
+    @staticmethod
+    def display_message(message):
+        """Affiche un message"""
+        print(message)
+        input("Appuyez sur Entrée pour continuer...")
