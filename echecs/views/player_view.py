@@ -14,32 +14,32 @@ class PlayerView:
 
         if not players:
             print("\nAucun joueur enregistré \n")
-        else:
+            return 
+        
+        # Calculer la largeur maximale pour chaque colonne
+        id_width = max(len(player.player_id) for player in players) + 5
+        last_name_width = max(len(player.last_name) for player in players) + 5
+        first_name_width = max(len(player.first_name) for player in players) + 5
+        birthday_width = max(len(player.birthday) for player in players) + 5
 
-            # Calculer la largeur maximale pour chaque colonne
-            id_width = max(len(player.player_id) for player in players) + 5
-            last_name_width = max(len(player.last_name) for player in players) + 5
-            first_name_width = max(len(player.first_name) for player in players) + 5
-            birthday_width = max(len(player.birthday) for player in players) + 5
+        # Ajouter un peu d'espace supplémentaire pour les en-têtes
+        id_width = max(id_width, len("ID"))
+        last_name_width = max(last_name_width, len("Nom"))
+        first_name_width = max(first_name_width, len("Prénom"))
+        birthday_width = max(birthday_width, len("Date de naissance"))
 
-            # Ajouter un peu d'espace supplémentaire pour les en-têtes
-            id_width = max(id_width, len("ID"))
-            last_name_width = max(last_name_width, len("Nom"))
-            first_name_width = max(first_name_width, len("Prénom"))
-            birthday_width = max(birthday_width, len("Date de naissance"))
+        print(
+            f"{'ID':<{id_width}} {'Nom':<{last_name_width}} ",
+            f"{'Prénom':<{first_name_width}} {'Date de naissance':<{birthday_width}}",
+        )
 
+        for player in players:
             print(
-                f"{'ID':<{id_width}} {'Nom':<{last_name_width}} ",
-                f"{'Prénom':<{first_name_width}} {'Date de naissance':<{birthday_width}}",
+                f"{player.player_id:<{id_width}} {player.last_name.capitalize():<{last_name_width}} ",
+                f"{player.first_name.capitalize():<{first_name_width}} {player.birthday:<{birthday_width}}",
             )
 
-            for player in players:
-                print(
-                    f"{player.player_id:<{id_width}} {player.last_name.capitalize():<{last_name_width}} ",
-                    f"{player.first_name.capitalize():<{first_name_width}} {player.birthday:<{birthday_width}}",
-                )
-
-            print("\n------------------------------------")
+        print("\n------------------------------------")
 
     @staticmethod
     def prompt_for_add_player():

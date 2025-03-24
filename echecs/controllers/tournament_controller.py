@@ -190,11 +190,6 @@ class TournamentController:
         # Affiche les détails du tournoi
         TournamentView.display_tournament_details(tournament)
 
-        # On affiche chaque rounds passés
-        for round in tournament.rounds:
-
-            RoundView.display_round(round)
-
         classement = tournament.get_classement()
         TournamentView.display_classement(classement)
         RoundView.prompt_end_tournament()
